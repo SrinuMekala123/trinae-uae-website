@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 215 55% 98%;
+    --foreground: 215 25% 15%;
+    --primary: 210 100% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 195 100% 42%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 215 20% 95%;
+    --muted-foreground: 215 15% 45%;
+    --accent: 210 100% 42%;
+    --accent-foreground: 0 0% 100%;
+    --border: 215 20% 90%;
+    --radius: 1rem;
+    --font-sans:
+      "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-arabic: "Noto Sans Arabic", "Inter", sans-serif;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  [dir="rtl"] {
+    font-family: var(--font-arabic);
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  .btn-gradient {
+    @apply bg-gradient-to-r from-primary to-cyan;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-cyan;
+  }
+
+  .section-alt {
+    @apply bg-gradient-to-b from-background to-muted/30;
+  }
+
+  /* Smooth image loading */
+  img,
+  video {
+    @apply max-w-full h-auto block;
+  }
+
+  /* Focus styles for accessibility */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    @apply outline-none ring-2 ring-primary/50 ring-offset-2 ring-offset-background;
+  }
+
+  /* Hide scrollbar for carousel but allow scrolling */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive text scaling */
+  .text-responsive {
+    @apply text-base sm:text-lg lg:text-xl;
+  }
+
+  .heading-responsive {
+    @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Dark mode support (optional - can be extended) */
+@media (prefers-color-scheme: dark) {
+  /* Add dark mode variables here if needed */
+}
+
+/* Font loading optimization */
+@font-face {
+  font-family: "Inter";
+  font-display: swap;
+  src: local("Inter"), local("Inter-Regular");
+}
+
+@font-face {
+  font-family: "Noto Sans Arabic";
+  font-display: swap;
+  src: local("Noto Sans Arabic"), local("NotoSansArabic-Regular");
+}
+
+/* Prevent layout shift during font load */
+html {
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Video background optimization */
+video[poster] {
+  object-fit: cover;
+}
+
+/* Image lazy loading placeholder */
+img[loading="lazy"] {
+  @apply bg-muted/20;
+}
+
+/* Utility for glassmorphism */
+.glass {
+  @apply bg-white/80 backdrop-blur-md border border-gray-200/60;
+}
+
+.glass-dark {
+  @apply bg-black/40 backdrop-blur-md border border-white/10;
+}
+
+/* Smooth hover transitions */
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+.hover-glow {
+  @apply transition-shadow duration-300 hover:shadow-lg;
+}
+
+/* Focus ring for keyboard navigation */
+.focus-ring {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg;
+}
