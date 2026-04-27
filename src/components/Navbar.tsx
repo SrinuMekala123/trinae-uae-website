@@ -209,14 +209,14 @@ const navItems: NavItem[] = [
   { key: "nav.contact", label: "Contact", path: "/contact" },
 ];
 
+// ✅ Pages that should have transparent header at top
+const TRANSPARENT_PAGES = ["/", "/elv-solutions", "/iccc", "/home-automation"];
+
 const Navbar = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
   const { t, toggleLang, lang } = useLang();
   const location = useLocation();
-
-  // Check if we're on the home page
-  const isHomePage: boolean = location.pathname === "/";
 
   // Handle scroll effect
   useEffect(() => {
@@ -255,8 +255,11 @@ const Navbar = () => {
     setOpen(false);
   };
 
-  // Determine styling based on page and scroll
-  const isTransparentTheme: boolean = isHomePage && !scrolled;
+  // ✅ KEY LOGIC: Transparent only on specific pages AND at top
+  const isTransparentPage: boolean = TRANSPARENT_PAGES.includes(
+    location.pathname,
+  );
+  const isTransparentTheme: boolean = isTransparentPage && !scrolled;
 
   // Logo based on theme
   const logoSrc: string = isTransparentTheme
