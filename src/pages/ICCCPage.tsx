@@ -71,9 +71,30 @@ const ICCCPage = () => {
     <div className="min-h-screen overflow-x-hidden bg-background">
       <Navbar />
 
-      {/* Hero */}
-      <section className="py-32 relative overflow-hidden bg-gradient-to-b from-[hsl(215,55%,18%)] to-[hsl(210,60%,22%)]">
-        <div className="container mx-auto px-4 text-center">
+      {/* Hero with Video Background */}
+      <section className="py-32 relative overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            poster="https://ik.imagekit.io/e7pijyscb/Trinai%20UAE/Home%20page/trinai%20uae%20websites%20home%20page%20images/ICCC%20UAE.png"
+          >
+            <source
+              src="https://ik.imagekit.io/gjpszmq3v/trinai%20uae%20web%20videos/278959f1-3692-4c90-bc64-b3d8351c9418.mp4?updatedAt=1775805370357"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+          {/* Dark Overlay for Text Readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(215,55%,18%)]/50 to-[hsl(210,60%,22%)]/60" />
+        </div>
+
+        {/* Hero Content */}
+        <div className="container mx-auto px-4 text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

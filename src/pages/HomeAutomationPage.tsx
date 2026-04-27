@@ -105,20 +105,41 @@ const HomeAutomationPage = () => {
     <div className="min-h-screen overflow-x-hidden bg-background">
       <Navbar />
 
-      {/* Hero */}
-      <section className="py-32 relative overflow-hidden bg-gradient-to-b from-background to-muted/30">
-        <div className="container mx-auto px-4 text-center">
+      {/* Hero with Video Background */}
+      <section className="py-32 relative overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            poster="https://ik.imagekit.io/e7pijyscb/Trinai%20UAE/Home%20page/trinai%20uae%20websites%20home%20page%20images/Smart%20Home%20Automation%20UAE.png"
+          >
+            <source
+              src="https://ik.imagekit.io/gjpszmq3v/trinai%20uae%20web%20videos/cd4302cc-3fff-44f2-892f-7f1d2fe92734.mp4?updatedAt=1775805370221"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+          {/* Dark Overlay for Text Readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(215,55%,18%)]/30 to-[hsl(210,60%,22%)]/45" />
+        </div>
+
+        {/* Hero Content */}
+        <div className="container mx-auto px-4 text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-foreground mb-6"
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white mb-6"
           >
             Home Automation in UAE
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-lg text-muted-foreground max-w-4xl mx-auto mb-8 leading-relaxed"
+            className="text-lg text-white/80 max-w-4xl mx-auto mb-8 leading-relaxed"
           >
             Trinai UAE offers complete home automation solutions in Dubai and
             across the UAE, covering everything required to transform your home
@@ -219,7 +240,7 @@ const HomeAutomationPage = () => {
         </div>
       </section>
 
-      {/* CTA - FIXED */}
+      {/* CTA */}
       <section className="py-16 bg-gradient-to-r from-[hsl(215,55%,18%)] to-[hsl(210,60%,22%)]">
         <div className="container mx-auto px-4 text-center">
           <motion.h2

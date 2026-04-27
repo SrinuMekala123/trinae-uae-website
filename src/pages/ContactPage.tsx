@@ -13,8 +13,11 @@ const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     message: "",
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -22,13 +25,49 @@ const ContactPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you! We'll contact you soon.");
+
+    // ✅ Updated validation to include phone
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.message
+    ) {
+      alert("Please fill in all required fields");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Submission failed");
+      }
+
+      alert("Thank you! Your message has been sent to Info and Barsha.");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert(
+        "Sorry, there was an error sending your message. Please try again later.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  // ✅ Updated address - removed "House number 15, Bloomingdale villa,"
   const officeAddress =
     "Al Hebiah Fourth, Dubai Sports City, Dubai, United Arab Emirates";
 
@@ -136,9 +175,10 @@ const ContactPage = () => {
               onSubmit={handleSubmit}
               className="bg-white border border-gray-200 shadow-xl rounded-2xl p-8 space-y-5"
             >
+              {/* Name Field */}
               <div>
                 <label className="block text-sm font-semibold text-foreground mb-2">
-                  {t("contact.name")}
+                  {t("contact.name")} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -147,12 +187,15 @@ const ContactPage = () => {
                   onChange={handleChange}
                   required
                   placeholder="John Doe"
-                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-foreground placeholder:text-gray-400 text-sm focus:outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-foreground placeholder:text-gray-400 text-sm focus:outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
+
+              {/* Email Field */}
               <div>
                 <label className="block text-sm font-semibold text-foreground mb-2">
-                  {t("contact.email")}
+                  {t("contact.email")} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="email"
@@ -161,12 +204,32 @@ const ContactPage = () => {
                   onChange={handleChange}
                   required
                   placeholder="john@example.com"
-                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-foreground placeholder:text-gray-400 text-sm focus:outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-foreground placeholder:text-gray-400 text-sm focus:outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
+
+              {/* Phone Number Field - Updated with required star */}
               <div>
                 <label className="block text-sm font-semibold text-foreground mb-2">
-                  {t("contact.message")}
+                  {t("contact.phone")} <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  placeholder="+971 50 123 4567"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-foreground placeholder:text-gray-400 text-sm focus:outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                />
+              </div>
+
+              {/* Message Field */}
+              <div>
+                <label className="block text-sm font-semibold text-foreground mb-2">
+                  {t("contact.message")} <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   name="message"
@@ -175,19 +238,35 @@ const ContactPage = () => {
                   required
                   rows={4}
                   placeholder="Tell us about your project..."
-                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-foreground placeholder:text-gray-400 text-sm focus:outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all resize-none"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-foreground placeholder:text-gray-400 text-sm focus:outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
 
-              {/* Send Button - FULLY VISIBLE */}
+              {/* Send Button */}
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full px-6 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold text-base shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-cyan-700 transition-all flex items-center justify-center gap-2"
+                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                disabled={isSubmitting}
+                className={`w-full px-6 py-4 rounded-xl font-bold text-base shadow-lg transition-all flex items-center justify-center gap-2
+                  ${
+                    isSubmitting
+                      ? "bg-gray-400 cursor-not-allowed"
+                      : "bg-gradient-to-r from-blue-600 to-cyan-600 hover:shadow-xl hover:from-blue-700 hover:to-cyan-700 text-white"
+                  }`}
               >
-                <Send size={18} />
-                {t("contact.send")}
+                {isSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send size={18} />
+                    {t("contact.send")}
+                  </>
+                )}
               </motion.button>
             </motion.form>
           </div>

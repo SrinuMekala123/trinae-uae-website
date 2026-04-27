@@ -4,6 +4,11 @@ import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+// Import local images from src/assets folder
+import elvImage from "@/assets/6.png";
+import icccImage from "@/assets/5.png";
+import homeAutoImage from "@/assets/7.png";
+
 const ServicesPage = () => {
   const { t } = useLang();
 
@@ -12,8 +17,7 @@ const ServicesPage = () => {
       title: "ELV Solutions in UAE",
       subtitle:
         "We provide complete ELV solutions in Dubai, designed for secure and efficient infrastructure.",
-      image:
-        "https://ik.imagekit.io/e7pijyscb/Trinai%20UAE/Home%20page/trinai%20uae%20websites%20home%20page%20images/ELV%20UAE.png",
+      image: elvImage, // 6.png for ELV
       items: [
         "Biometric Access Control – Advanced fingerprint, facial recognition & RFID systems",
         "Boom Barriers – Automated vehicle entry management systems",
@@ -26,8 +30,7 @@ const ServicesPage = () => {
       title: "ICCC (Command & Control Centers UAE)",
       subtitle:
         "Centralized platforms for monitoring, managing, and responding in real time.",
-      image:
-        "https://ik.imagekit.io/e7pijyscb/Trinai%20UAE/Home%20page/trinai%20uae%20websites%20home%20page%20images/ICCC%20UAE.png",
+      image: icccImage, // 5.png for ICCC
       items: [
         "Video Management Systems (VMS)",
         "AI Video Analytics",
@@ -40,8 +43,7 @@ const ServicesPage = () => {
     {
       title: "Home Automation in UAE",
       subtitle: "Smart living solutions designed for modern homes and villas.",
-      image:
-        "https://ik.imagekit.io/e7pijyscb/Trinai%20UAE/Home%20page/trinai%20uae%20websites%20home%20page%20images/Smart%20Home%20Automation%20UAE.png",
+      image: homeAutoImage, // 7.png for Home Automation
       items: [
         "Smart Lighting Control",
         "Climate Control (AC Automation)",
@@ -83,14 +85,15 @@ const ServicesPage = () => {
               transition={{ duration: 0.6 }}
               className={`grid lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
             >
-              {/* Image */}
+              {/* Image - Removed white background and border */}
               <div className="relative group">
                 <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-primary to-cyan opacity-10 blur-lg group-hover:opacity-20 transition-opacity" />
-                <div className="relative bg-white/80 backdrop-blur-md border border-gray-200/60 shadow-2xl rounded-3xl p-3 overflow-hidden">
+                {/* ✅ Removed: bg-white/80 backdrop-blur-md p-3 */}
+                <div className="relative rounded-3xl overflow-hidden">
                   <img
                     src={s.image}
                     alt={s.title}
-                    className="w-full rounded-2xl aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full rounded-3xl aspect-video object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>
@@ -118,12 +121,12 @@ const ServicesPage = () => {
                   ))}
                 </ul>
 
-                {/* Explore Solutions Button - BLACK BACKGROUND */}
+                {/* Explore Solutions Button - Updated with gradient like Contact Page */}
                 <motion.button
                   onClick={() => (window.location.href = s.link)}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="group inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-black text-white font-semibold text-base shadow-lg hover:shadow-xl hover:bg-gray-900 transition-all"
+                  className="group inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold text-base shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-cyan-700 transition-all"
                 >
                   Explore Solutions
                   <ArrowRight
