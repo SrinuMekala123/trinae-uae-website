@@ -9,7 +9,7 @@ import { useState } from "react";
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const ContactPage = () => {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,14 +28,13 @@ const ContactPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // ✅ Updated validation to include phone
     if (
       !formData.name ||
       !formData.email ||
       !formData.phone ||
       !formData.message
     ) {
-      alert("Please fill in all required fields");
+      alert(t("contact.alert.required")); // ✅ Uses i18n
       return;
     }
 
@@ -44,9 +43,7 @@ const ContactPage = () => {
     try {
       const response = await fetch("http://localhost:5000/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
@@ -56,27 +53,30 @@ const ContactPage = () => {
         throw new Error(result.error || "Submission failed");
       }
 
-      alert("Thank you! Your message has been sent to Info and Barsha.");
+      // ✅ Simple success message via i18n:
+      alert(t("contact.alert.success"));
+
+      // Clear form
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
       console.error("Submission error:", error);
-      alert(
-        "Sorry, there was an error sending your message. Please try again later.",
-      );
+      alert(t("contact.alert.error")); // ✅ Uses i18n
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const officeAddress =
-    "Al Hebiah Fourth, Dubai Sports City, Dubai, United Arab Emirates";
+    lang === "ar"
+      ? "الحبية الرابعة، مدينة دبي الرياضية، دبي، الإمارات العربية المتحدة"
+      : "Al Hebiah Fourth, Dubai Sports City, Dubai, United Arab Emirates";
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-background">
       <Navbar />
 
       {/* Hero */}
-      <section className="py-32 relative overflow-hidden bg-gradient-to-b from-background to-muted/30">
+      <section className="py-20 relative overflow-hidden bg-gradient-to-b from-background to-muted/30">
         <DotGrid className="top-0 right-0 w-[400px] h-[400px]" />
         <div className="container mx-auto px-4 text-center relative z-10">
           <motion.h1
@@ -106,7 +106,7 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Info & Form */}
-      <section className="py-20 bg-background">
+      <section className="py-10 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Info */}
@@ -126,7 +126,10 @@ const ContactPage = () => {
                   <h3 className="font-bold font-heading text-foreground mb-1">
                     {t("contactPage.office.title")}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p
+                    className="text-sm text-muted-foreground leading-relaxed"
+                    dir="ltr"
+                  >
                     {officeAddress}
                   </p>
                 </div>
@@ -144,6 +147,7 @@ const ContactPage = () => {
                   <a
                     href="mailto:info@trinai.ae"
                     className="text-sm text-primary hover:underline font-medium"
+                    dir="ltr"
                   >
                     {t("contactPage.email.address")}
                   </a>
@@ -159,7 +163,7 @@ const ContactPage = () => {
                   <h3 className="font-bold font-heading text-foreground mb-1">
                     {t("contact.phoneLabel")}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground" dir="ltr">
                     +971 55 551 7511
                   </p>
                 </div>
@@ -186,13 +190,13 @@ const ContactPage = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  placeholder="John Doe"
+                  placeholder={lang === "ar" ? "الاسم الكامل" : "John Doe"}
                   disabled={isSubmitting}
                   className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-foreground placeholder:text-gray-400 text-sm focus:outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
 
-              {/* Email Field */}
+              {/* Email Field - Fixed alignment */}
               <div>
                 <label className="block text-sm font-semibold text-foreground mb-2">
                   {t("contact.email")} <span className="text-red-500">*</span>
@@ -203,13 +207,18 @@ const ContactPage = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="john@example.com"
+                  placeholder={
+                    lang === "ar" ? "البريد الإلكتروني" : "john@example.com"
+                  }
                   disabled={isSubmitting}
-                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-foreground placeholder:text-gray-400 text-sm focus:outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  dir="ltr"
+                  // ✅ Added conditional alignment classes
+                  className={`w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-foreground placeholder:text-gray-400 text-sm focus:outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed
+                    ${lang === "ar" ? "text-right placeholder:text-right" : "text-left"}`}
                 />
               </div>
 
-              {/* Phone Number Field - Updated with required star */}
+              {/* Phone Number Field - Fixed alignment */}
               <div>
                 <label className="block text-sm font-semibold text-foreground mb-2">
                   {t("contact.phone")} <span className="text-red-500">*</span>
@@ -220,9 +229,14 @@ const ContactPage = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  placeholder="+971 50 123 4567"
+                  placeholder={
+                    lang === "ar" ? "+971 50 123 4567" : "+971 50 123 4567"
+                  }
                   disabled={isSubmitting}
-                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-foreground placeholder:text-gray-400 text-sm focus:outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  dir="ltr"
+                  // ✅ Added conditional alignment classes
+                  className={`w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-foreground placeholder:text-gray-400 text-sm focus:outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed
+                    ${lang === "ar" ? "text-right placeholder:text-right" : "text-left"}`}
                 />
               </div>
 
@@ -237,7 +251,11 @@ const ContactPage = () => {
                   onChange={handleChange}
                   required
                   rows={4}
-                  placeholder="Tell us about your project..."
+                  placeholder={
+                    lang === "ar"
+                      ? "أخبرنا عن مشروعك..."
+                      : "Tell us about your project..."
+                  }
                   disabled={isSubmitting}
                   className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-foreground placeholder:text-gray-400 text-sm focus:outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                 />
@@ -259,7 +277,7 @@ const ContactPage = () => {
                 {isSubmitting ? (
                   <>
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    Sending...
+                    {lang === "ar" ? "جاري الإرسال..." : "Sending..."}
                   </>
                 ) : (
                   <>

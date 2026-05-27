@@ -210,7 +210,14 @@ const navItems: NavItem[] = [
 ];
 
 // ✅ Pages that should have transparent header at top
-const TRANSPARENT_PAGES = ["/", "/elv-solutions", "/iccc", "/home-automation"];
+const TRANSPARENT_PAGES = [
+  "/",
+  "/elv-solutions",
+  "/iccc",
+  "/home-automation",
+  "/ai-analytics",
+  "/surveillance-systems",
+];
 
 const Navbar = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -261,10 +268,10 @@ const Navbar = () => {
   );
   const isTransparentTheme: boolean = isTransparentPage && !scrolled;
 
-  // Logo based on theme
+  // ✅ Logo from public folder (not ImageKit)
   const logoSrc: string = isTransparentTheme
-    ? "https://ik.imagekit.io/e7pijyscb/Trinai%20UAE/Home%20page/trinai%20logo%20R%20white.png"
-    : "https://ik.imagekit.io/e7pijyscb/Trinai%20UAE/Home%20page/trinai%20logo%20R.png";
+    ? "/logo-white.png" // White logo for transparent/dark backgrounds
+    : "/logo.png"; // Colored logo for white/light backgrounds
 
   return (
     <motion.nav

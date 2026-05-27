@@ -8,53 +8,87 @@ import Footer from "@/components/Footer";
 import elvImage from "@/assets/6.png";
 import icccImage from "@/assets/5.png";
 import homeAutoImage from "@/assets/7.png";
+import aiAnalyticsImage from "@/assets/aismart-analytics.jpeg";
+import surveillanceImage from "@/assets/surveillance-systems.jpeg";
 
 const ServicesPage = () => {
   const { t } = useLang();
 
+  // ✅ REORDERED: Surveillance Systems, ICCC, Home Automation, ELV Systems, AI Smart Analytics
   const services = [
+    // 1. Surveillance Systems
     {
-      title: "ELV Solutions in UAE",
-      subtitle:
-        "We provide complete ELV solutions in Dubai, designed for secure and efficient infrastructure.",
-      image: elvImage, // 6.png for ELV
+      title: t("servicesPage.surveillance.title"),
+      subtitle: t("servicesPage.surveillance.desc"),
+      image: surveillanceImage,
       items: [
-        "Biometric Access Control – Advanced fingerprint, facial recognition & RFID systems",
-        "Boom Barriers – Automated vehicle entry management systems",
-        "CCTV Surveillance – AI-powered monitoring with real-time analytics",
-        "Fire Alarm Systems – Early detection and safety compliance solutions",
+        t("servicesPage.surveillance.items.1"),
+        t("servicesPage.surveillance.items.2"),
+        t("servicesPage.surveillance.items.3"),
+        t("servicesPage.surveillance.items.4"),
+        t("servicesPage.surveillance.items.5"),
+        t("servicesPage.surveillance.items.6"),
       ],
-      link: "/elv-solutions",
+      link: "/surveillance-systems",
     },
+    // 2. ICCC
     {
-      title: "ICCC (Command & Control Centers UAE)",
-      subtitle:
-        "Centralized platforms for monitoring, managing, and responding in real time.",
-      image: icccImage, // 5.png for ICCC
+      title: t("servicesPage.iccc.title"),
+      subtitle: t("servicesPage.iccc.desc"),
+      image: icccImage,
       items: [
-        "Video Management Systems (VMS)",
-        "AI Video Analytics",
-        "Incident Management System",
-        "Data Integration & Dashboard",
-        "Cloud & On-Premise Solutions",
+        t("servicesPage.iccc.items.1"),
+        t("servicesPage.iccc.items.2"),
+        t("servicesPage.iccc.items.3"),
+        t("servicesPage.iccc.items.4"),
+        t("servicesPage.iccc.items.5"),
       ],
       link: "/iccc",
     },
+    // 3. Home Automation
     {
-      title: "Home Automation in UAE",
-      subtitle: "Smart living solutions designed for modern homes and villas.",
-      image: homeAutoImage, // 7.png for Home Automation
+      title: t("servicesPage.home.title"),
+      subtitle: t("servicesPage.home.desc"),
+      image: homeAutoImage,
       items: [
-        "Smart Lighting Control",
-        "Climate Control (AC Automation)",
-        "Smart Security Integration",
-        "Smart Door Locks & Video Door Phones",
-        "Curtain & Blind Automation",
-        "Entertainment & Media Control",
-        "Voice & Mobile App Control",
-        "Energy Management Systems",
+        t("servicesPage.home.items.1"),
+        t("servicesPage.home.items.2"),
+        t("servicesPage.home.items.3"),
+        t("servicesPage.home.items.4"),
+        t("servicesPage.home.items.5"),
+        t("servicesPage.home.items.6"),
+        t("servicesPage.home.items.7"),
+        t("servicesPage.home.items.8"),
       ],
       link: "/home-automation",
+    },
+    // 4. ELV Systems
+    {
+      title: t("servicesPage.elv.title"),
+      subtitle: t("servicesPage.elv.desc"),
+      image: elvImage,
+      items: [
+        t("servicesPage.elv.items.1"),
+        t("servicesPage.elv.items.2"),
+        t("servicesPage.elv.items.3"),
+        t("servicesPage.elv.items.4"),
+      ],
+      link: "/elv-solutions",
+    },
+    // 5. AI Smart Analytics
+    {
+      title: t("servicesPage.analytics.title"),
+      subtitle: t("servicesPage.analytics.desc"),
+      image: aiAnalyticsImage,
+      items: [
+        t("servicesPage.analytics.items.1"),
+        t("servicesPage.analytics.items.2"),
+        t("servicesPage.analytics.items.3"),
+        t("servicesPage.analytics.items.4"),
+        t("servicesPage.analytics.items.5"),
+        t("servicesPage.analytics.items.6"),
+      ],
+      link: "/ai-analytics",
     },
   ];
 
@@ -62,19 +96,20 @@ const ServicesPage = () => {
     <div className="min-h-screen overflow-x-hidden bg-background">
       <Navbar />
 
-      <section className="py-32 relative overflow-hidden bg-gradient-to-b from-background to-muted/30">
+      {/* Hero Section */}
+      <section className="py-20 relative overflow-hidden bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-foreground mb-6"
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-foreground mb-4"
           >
             {t("servicesPage.title")}
           </motion.h1>
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-10">
         <div className="container mx-auto px-4 space-y-20">
           {services.map((s, i) => (
             <motion.div
@@ -83,12 +118,12 @@ const ServicesPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              // ✅ Alternating layout: odd items reverse image/content position
               className={`grid lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
             >
-              {/* Image - Removed white background and border */}
+              {/* Image */}
               <div className="relative group">
                 <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-primary to-cyan opacity-10 blur-lg group-hover:opacity-20 transition-opacity" />
-                {/* ✅ Removed: bg-white/80 backdrop-blur-md p-3 */}
                 <div className="relative rounded-3xl overflow-hidden">
                   <img
                     src={s.image}
@@ -121,14 +156,14 @@ const ServicesPage = () => {
                   ))}
                 </ul>
 
-                {/* Explore Solutions Button - Updated with gradient like Contact Page */}
+                {/* Explore Solutions Button */}
                 <motion.button
                   onClick={() => (window.location.href = s.link)}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   className="group inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold text-base shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-cyan-700 transition-all"
                 >
-                  Explore Solutions
+                  {t("services.exploreSolutions")}
                   <ArrowRight
                     size={18}
                     className="group-hover:translate-x-1 transition-transform"

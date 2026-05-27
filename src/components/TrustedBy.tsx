@@ -7,15 +7,19 @@ const TrustedBy = () => {
   const { t } = useLang();
 
   const brands = [
-    "Dubai Police", "DEWA", "Emaar", "Nakheel", "ADNOC",
-    "Dubai Municipality", "Aldar Properties", "Etisalat"
+    "Dubai Police",
+    "DEWA",
+    "Emaar",
+    "Nakheel",
+    "ADNOC",
+    "Dubai Municipality",
+    "Aldar Properties",
+    "Etisalat",
   ];
 
   return (
     <section className="py-14 border-t border-b border-gray-200/60 relative overflow-hidden bg-white/50">
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-background via-primary/[0.02] to-background pointer-events-none"
-      />
+      <motion.div className="absolute inset-0 bg-gradient-to-r from-background via-primary/[0.02] to-background pointer-events-none" />
       <div className="container mx-auto px-4 relative z-10">
         <motion.p
           initial={{ opacity: 0, y: 10 }}

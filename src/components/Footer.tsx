@@ -1,115 +1,249 @@
 // import { motion } from "framer-motion";
 // import { useLang } from "@/lib/i18n";
-// import logo from "@/assets/logo.png";
-// import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
-
-// const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
+// import {
+//   Mail,
+//   Phone,
+//   MapPin,
+//   ArrowUpRight,
+//   Linkedin,
+//   Facebook,
+//   Instagram,
+//   Shield,
+// } from "lucide-react";
+// import { useLocation } from "react-router-dom";
 
 // const Footer = () => {
-//   const { t } = useLang();
-//   const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+//   const { t, lang } = useLang();
+//   const location = useLocation();
 
+//   // Navigation handler
+//   const handleNavigation = (e: React.MouseEvent, path: string) => {
+//     e.preventDefault();
+
+//     if (location.pathname !== path) {
+//       window.location.href = path;
+//     } else {
+//       window.scrollTo({ top: 0, behavior: "smooth" });
+//     }
+//   };
+
+//   // Quick Links
 //   const quickLinks = [
-//     { key: "nav.home", id: "home" },
-//     { key: "nav.services", id: "services" },
-//     { key: "nav.about", id: "about" },
-//     { key: "nav.solutions", id: "solutions" },
-//     { key: "nav.contact", id: "contact" },
+//     { key: "nav.home", path: "/" },
+//     { key: "nav.services", path: "/services" },
+//     { key: "nav.about", path: "/about" },
+//     { key: "nav.contact", path: "/contact" },
 //   ];
 
-//   const solutionLinks = [
-//     "solutions.cctv.title",
-//     "solutions.home.title",
-//     "solutions.iccc.title",
+//   // Services Links
+//   const servicesLinks = [
+//     {
+//       labelKey: "servicesPage.surveillance.title",
+//       path: "/surveillance-systems",
+//     },
+//     { labelKey: "servicesPage.iccc.title", path: "/iccc" },
+//     { labelKey: "servicesPage.home.title", path: "/home-automation" },
+//     { labelKey: "servicesPage.elv.title", path: "/elv-solutions" },
+//     { labelKey: "servicesPage.analytics.title", path: "/ai-analytics" },
+//   ];
+
+//   // Contact Info
+//   const contactEmail = "info@trinai.ae";
+//   const contactPhone = "+971 55 551 7511";
+//   const contactAddress =
+//     lang === "ar"
+//       ? "الحبية الرابعة، مدينة دبي الرياضية، دبي، الإمارات العربية المتحدة"
+//       : "Al Hebiah Fourth, Dubai Sports City, Dubai, United Arab Emirates";
+
+//   // Social Media Links (YouTube removed)
+//   const socialLinks = [
+//     {
+//       name: "LinkedIn",
+//       icon: Linkedin,
+//       url: "https://www.linkedin.com/company/trinaiae/",
+//     },
+//     {
+//       name: "Facebook",
+//       icon: Facebook,
+//       url: "https://www.facebook.com/profile.php?id=61587721504259",
+//     },
+//     {
+//       name: "Instagram",
+//       icon: Instagram,
+//       url: "https://www.instagram.com/trinai_uae/",
+//     },
 //   ];
 
 //   return (
-//     <footer className="bg-gradient-to-b from-[hsl(215,55%,15%)] to-[hsl(220,50%,10%)] text-white pt-16 pb-8 relative overflow-hidden">
-//       <motion.div
-//         className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] rounded-full bg-primary/5 blur-[100px] pointer-events-none"
-//       />
-
-//       <div className="container mx-auto px-4 relative z-10">
+//     <footer className="bg-gradient-to-b from-[hsl(215,55%,15%)] to-[hsl(220,50%,10%)] text-white pt-16 pb-8">
+//       <div className="container mx-auto px-4">
 //         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+//           {/* Logo & Social Media - With left margin */}
 //           <motion.div
 //             initial={{ opacity: 0, y: 20 }}
 //             whileInView={{ opacity: 1, y: 0 }}
 //             viewport={{ once: true }}
-//             transition={{ duration: 0.6, ease }}
+//             className="space-y-6 pl-0 md:pl-8"
 //           >
-//             <img src={logo} alt="TRINAI" className="h-9 mb-4 brightness-0 invert" />
-//             <p className="text-white/50 text-sm leading-relaxed mb-6">{t("footer.desc")}</p>
+//             {/* ✅ Logo from public folder */}
+//             <img src="/logo-white.png" alt="TRINAI" className="h-10" />
+
+//             {/* Social Media Icons - Added more gap from logo */}
+//             <div className="pt-4">
+//               <h4 className="text-sm font-bold text-white mb-4">
+//                 {lang === "ar" ? "تابعنا" : "Follow Us"}
+//               </h4>
+//               <div className="flex gap-3">
+//                 {socialLinks.map((social) => {
+//                   const Icon = social.icon;
+//                   return (
+//                     <a
+//                       key={social.name}
+//                       href={social.url}
+//                       target="_blank"
+//                       rel="noopener noreferrer"
+//                       className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white/60 hover:text-cyan-300 hover:border-cyan-300/50 hover:bg-white/15 transition-all duration-300"
+//                       aria-label={social.name}
+//                     >
+//                       <Icon size={18} />
+//                     </a>
+//                   );
+//                 })}
+//               </div>
+//             </div>
 //           </motion.div>
 
+//           {/* Quick Links */}
 //           <motion.div
 //             initial={{ opacity: 0, y: 20 }}
 //             whileInView={{ opacity: 1, y: 0 }}
 //             viewport={{ once: true }}
-//             transition={{ duration: 0.6, delay: 0.1, ease }}
+//             transition={{ delay: 0.1 }}
 //           >
-//             <h4 className="text-sm font-bold text-white mb-4">{t("footer.quickLinks")}</h4>
+//             <h4 className="text-sm font-bold text-white mb-4">
+//               {t("footer.quickLinks")}
+//             </h4>
 //             <ul className="space-y-2.5">
 //               {quickLinks.map((link) => (
-//                 <li key={link.id}>
-//                   <button onClick={() => scrollTo(link.id)} className="text-white/40 hover:text-cyan-300 text-sm transition-colors duration-300 flex items-center gap-1 group">
+//                 <li key={link.key}>
+//                   <button
+//                     onClick={(e) => handleNavigation(e, link.path)}
+//                     className="text-white/60 hover:text-cyan-300 text-sm transition-colors flex items-center gap-1 group"
+//                   >
+//                     <ArrowUpRight
+//                       size={12}
+//                       className="opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400"
+//                     />
 //                     {t(link.key)}
-//                     <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 //                   </button>
 //                 </li>
 //               ))}
 //             </ul>
 //           </motion.div>
 
+//           {/* Services */}
 //           <motion.div
 //             initial={{ opacity: 0, y: 20 }}
 //             whileInView={{ opacity: 1, y: 0 }}
 //             viewport={{ once: true }}
-//             transition={{ duration: 0.6, delay: 0.2, ease }}
+//             transition={{ delay: 0.2 }}
 //           >
-//             <h4 className="text-sm font-bold text-white mb-4">{t("footer.solutions")}</h4>
+//             <h4 className="text-sm font-bold text-white mb-4">
+//               {t("footer.services")}
+//             </h4>
 //             <ul className="space-y-2.5">
-//               {solutionLinks.map((key) => (
-//                 <li key={key}>
-//                   <button onClick={() => scrollTo("solutions")} className="text-white/40 hover:text-cyan-300 text-sm transition-colors duration-300 flex items-center gap-1 group">
-//                     {t(key)}
-//                     <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+//               {servicesLinks.map((service, i) => (
+//                 <li key={i}>
+//                   <button
+//                     onClick={(e) => handleNavigation(e, service.path)}
+//                     className="text-white/60 hover:text-cyan-300 text-sm transition-colors flex items-center gap-1 group"
+//                   >
+//                     <ArrowUpRight
+//                       size={12}
+//                       className="opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400"
+//                     />
+//                     {t(service.labelKey)}
 //                   </button>
 //                 </li>
 //               ))}
 //             </ul>
 //           </motion.div>
 
+//           {/* Contact Us - With right margin */}
 //           <motion.div
 //             initial={{ opacity: 0, y: 20 }}
 //             whileInView={{ opacity: 1, y: 0 }}
 //             viewport={{ once: true }}
-//             transition={{ duration: 0.6, delay: 0.3, ease }}
+//             transition={{ delay: 0.3 }}
+//             className="pr-0 md:pr-8"
 //           >
-//             <h4 className="text-sm font-bold text-white mb-4">{t("contact.label")}</h4>
+//             <h4 className="text-sm font-bold text-white mb-4">
+//               {t("contact.label")}
+//             </h4>
 //             <ul className="space-y-3">
-//               <li className="flex items-center gap-3 text-white/40 text-sm">
-//                 <Mail size={14} className="text-cyan-400 shrink-0" /> info@trinai.com
+//               <li className="flex items-center gap-3 text-white/60 text-sm">
+//                 <Mail size={14} className="text-cyan-400 shrink-0" />{" "}
+//                 <span dir="ltr" className="text-left">
+//                   {contactEmail}
+//                 </span>
 //               </li>
-//               <li className="flex items-center gap-3 text-white/40 text-sm">
-//                 <Phone size={14} className="text-cyan-400 shrink-0" /> +971 XX XXX XXXX
+//               <li className="flex items-center gap-3 text-white/60 text-sm">
+//                 <Phone size={14} className="text-cyan-400 shrink-0" />{" "}
+//                 <span dir="ltr" className="text-left">
+//                   {contactPhone}
+//                 </span>
 //               </li>
-//               <li className="flex items-start gap-3 text-white/40 text-sm">
-//                 <MapPin size={14} className="text-cyan-400 shrink-0 mt-0.5" /> Dubai, UAE
+//               <li className="flex items-start gap-3 text-white/60 text-sm">
+//                 <MapPin size={14} className="text-cyan-400 shrink-0 mt-0.5" />{" "}
+//                 <span dir="ltr" className="text-left">
+//                   {contactAddress}
+//                 </span>
 //               </li>
 //             </ul>
 //           </motion.div>
 //         </div>
 
+//         {/* Divider */}
 //         <motion.div
 //           initial={{ scaleX: 0 }}
 //           whileInView={{ scaleX: 1 }}
 //           viewport={{ once: true }}
-//           transition={{ duration: 1, ease }}
 //           className="h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent mb-6"
 //         />
-//         <p className="text-center text-white/30 text-xs">
-//           © {new Date().getFullYear()} Trinai. {t("footer.rights")}
-//         </p>
+
+//         {/* Bottom Section - Centered */}
+//         <div className="flex justify-center items-center">
+//           <motion.div
+//             initial={{ opacity: 0, y: 10 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             viewport={{ once: true }}
+//             className="flex items-center gap-4 text-center"
+//           >
+//             {/* Powered by Brihaspathi Technologies */}
+//             <a
+//               href="https://brihaspathi.com/"
+//               target="_blank"
+//               rel="noopener noreferrer"
+//               className="flex items-center gap-2 group hover:opacity-80 transition-opacity"
+//             >
+//               <Shield size={16} className="text-cyan-400" />
+//               <span className="text-xs text-white/60">
+//                 {lang === "ar" ? "مدعوم من" : "Powered by"}{" "}
+//                 <span className="text-cyan-400 font-semibold group-hover:text-cyan-300 transition-colors">
+//                   Brihaspathi Technologies Ltd
+//                 </span>
+//               </span>
+//             </a>
+
+//             {/* Separator */}
+//             <span className="text-white/30">|</span>
+
+//             {/* Copyright */}
+//             <p className="text-xs text-white/40">
+//               © {new Date().getFullYear()} Trinai. {t("footer.rights")}
+//             </p>
+//           </motion.div>
+//         </div>
 //       </div>
 //     </footer>
 //   );
@@ -119,14 +253,23 @@
 
 import { motion } from "framer-motion";
 import { useLang } from "@/lib/i18n";
-import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  ArrowUpRight,
+  Linkedin,
+  Facebook,
+  Instagram,
+  Shield,
+} from "lucide-react";
 import { useLocation } from "react-router-dom";
 
 const Footer = () => {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const location = useLocation();
 
-  // Navigation handler - matches Navbar behavior
+  // Navigation handler
   const handleNavigation = (e: React.MouseEvent, path: string) => {
     e.preventDefault();
 
@@ -137,42 +280,92 @@ const Footer = () => {
     }
   };
 
-  // Quick Links - ✅ Solutions removed
+  // Quick Links - ✅ Blogs added below About
   const quickLinks = [
     { key: "nav.home", path: "/" },
     { key: "nav.services", path: "/services" },
     { key: "nav.about", path: "/about" },
+    { path: "/blog", label: lang === "ar" ? "المدونة" : "Blogs" }, // ✅ Direct text
     { key: "nav.contact", path: "/contact" },
   ];
 
-  // Services Links - ✅ New section with direct links
+  // Services Links
   const servicesLinks = [
-    { label: "ELV Solutions in UAE", path: "/elv-solutions" },
-    { label: "ICCC (Command & Control Centers UAE)", path: "/iccc" },
-    { label: "Home Automation in UAE", path: "/home-automation" },
+    {
+      labelKey: "servicesPage.surveillance.title",
+      path: "/surveillance-systems",
+    },
+    { labelKey: "servicesPage.iccc.title", path: "/iccc" },
+    { labelKey: "servicesPage.home.title", path: "/home-automation" },
+    { labelKey: "servicesPage.elv.title", path: "/elv-solutions" },
+    { labelKey: "servicesPage.analytics.title", path: "/ai-analytics" },
+  ];
+
+  // Contact Info
+  const contactEmail = "info@trinai.ae";
+  const contactPhone = "+971 55 551 7511";
+  const contactAddress =
+    lang === "ar"
+      ? "الحبية الرابعة، مدينة دبي الرياضية، دبي، الإمارات العربية المتحدة"
+      : "Al Hebiah Fourth, Dubai Sports City, Dubai, United Arab Emirates";
+
+  // Social Media Links
+  const socialLinks = [
+    {
+      name: "LinkedIn",
+      icon: Linkedin,
+      url: "https://www.linkedin.com/company/trinaiae/",
+    },
+    {
+      name: "Facebook",
+      icon: Facebook,
+      url: "https://www.facebook.com/profile.php?id=61587721504259",
+    },
+    {
+      name: "Instagram",
+      icon: Instagram,
+      url: "https://www.instagram.com/trinai_uae/",
+    },
   ];
 
   return (
     <footer className="bg-gradient-to-b from-[hsl(215,55%,15%)] to-[hsl(220,50%,10%)] text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          {/* Logo & Description */}
+          {/* Logo & Social Media */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="space-y-6 pl-0 md:pl-8"
           >
-            <img
-              src="https://ik.imagekit.io/e7pijyscb/Trinai%20UAE/Home%20page/trinai%20logo%20R%20white.png"
-              alt="TRINAI"
-              className="h-10 mb-4"
-            />
-            <p className="text-white/60 text-sm leading-relaxed mb-6">
-              {t("footer.desc")}
-            </p>
+            <img src="/logo-white.png" alt="TRINAI" className="h-10" />
+
+            <div className="pt-4">
+              <h4 className="text-sm font-bold text-white mb-4">
+                {lang === "ar" ? "تابعنا" : "Follow Us"}
+              </h4>
+              <div className="flex gap-3">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <a
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white/60 hover:text-cyan-300 hover:border-cyan-300/50 hover:bg-white/15 transition-all duration-300"
+                      aria-label={social.name}
+                    >
+                      <Icon size={18} />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
           </motion.div>
 
-          {/* Quick Links - ✅ Solutions removed */}
+          {/* Quick Links - Includes Blogs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -183,31 +376,34 @@ const Footer = () => {
               {t("footer.quickLinks")}
             </h4>
             <ul className="space-y-2.5">
-              {quickLinks.map((link) => (
-                <li key={link.key}>
+              {quickLinks.map((link, index) => (
+                <li key={index}>
                   <button
                     onClick={(e) => handleNavigation(e, link.path)}
                     className="text-white/60 hover:text-cyan-300 text-sm transition-colors flex items-center gap-1 group"
                   >
-                    {t(link.key)}
                     <ArrowUpRight
                       size={12}
-                      className="opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400"
                     />
+                    {/* ✅ Show direct label for blog, use translation for others */}
+                    {link.label || t(link.key)}
                   </button>
                 </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Services - ✅ NEW: Direct links to service pages */}
+          {/* Services */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <h4 className="text-sm font-bold text-white mb-4">Services</h4>
+            <h4 className="text-sm font-bold text-white mb-4">
+              {t("footer.services")}
+            </h4>
             <ul className="space-y-2.5">
               {servicesLinks.map((service, i) => (
                 <li key={i}>
@@ -215,23 +411,24 @@ const Footer = () => {
                     onClick={(e) => handleNavigation(e, service.path)}
                     className="text-white/60 hover:text-cyan-300 text-sm transition-colors flex items-center gap-1 group"
                   >
-                    {service.label}
                     <ArrowUpRight
                       size={12}
-                      className="opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400"
                     />
+                    {t(service.labelKey)}
                   </button>
                 </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* Contact - ✅ Updated Address */}
+          {/* Contact Us */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
+            className="pr-0 md:pr-8"
           >
             <h4 className="text-sm font-bold text-white mb-4">
               {t("contact.label")}
@@ -239,29 +436,64 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-white/60 text-sm">
                 <Mail size={14} className="text-cyan-400 shrink-0" />{" "}
-                info@trinai.ae
+                <span dir="ltr" className="text-left">
+                  {contactEmail}
+                </span>
               </li>
               <li className="flex items-center gap-3 text-white/60 text-sm">
-                <Phone size={14} className="text-cyan-400 shrink-0" /> +971 XX
-                XXX XXXX
+                <Phone size={14} className="text-cyan-400 shrink-0" />{" "}
+                <span dir="ltr" className="text-left">
+                  {contactPhone}
+                </span>
               </li>
               <li className="flex items-start gap-3 text-white/60 text-sm">
                 <MapPin size={14} className="text-cyan-400 shrink-0 mt-0.5" />{" "}
-                Al Hebiah Fourth, Dubai Sports City, Dubai, United Arab Emirates
+                <span dir="ltr" className="text-left">
+                  {contactAddress}
+                </span>
               </li>
             </ul>
           </motion.div>
         </div>
 
+        {/* Divider */}
         <motion.div
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
           className="h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent mb-6"
         />
-        <p className="text-center text-white/40 text-xs">
-          © {new Date().getFullYear()} Trinai. {t("footer.rights")}
-        </p>
+
+        {/* Bottom Section */}
+        <div className="flex justify-center items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex items-center gap-4 text-center"
+          >
+            <a
+              href="https://brihaspathi.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 group hover:opacity-80 transition-opacity"
+            >
+              <Shield size={16} className="text-cyan-400" />
+              <span className="text-xs text-white/60">
+                {lang === "ar" ? "مدعوم من" : "Powered by"}{" "}
+                <span className="text-cyan-400 font-semibold group-hover:text-cyan-300 transition-colors">
+                  Brihaspathi Technologies Ltd
+                </span>
+              </span>
+            </a>
+
+            <span className="text-white/30">|</span>
+
+            <p className="text-xs text-white/40">
+              © {new Date().getFullYear()} Trinai. {t("footer.rights")}
+            </p>
+          </motion.div>
+        </div>
       </div>
     </footer>
   );

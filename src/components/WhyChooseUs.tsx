@@ -9,47 +9,48 @@ import {
   Maximize,
 } from "lucide-react";
 
-const reasons = [
-  {
-    title: "AI Innovation",
-    desc: "Trinai Leads with Cutting-Edge AI CCTV Surveillance",
-    Icon: Brain,
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    title: "Reliable Integration",
-    desc: "Mastering Seamless ICCC and Home Automation",
-    Icon: Link2,
-    color: "from-cyan-500 to-blue-500",
-  },
-  {
-    title: "Proven Expertise",
-    desc: "Delivering Trusted ELV Enterprise Solutions",
-    Icon: Award,
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    title: "24/7 Operations Center",
-    desc: "Round-the-clock monitoring with dedicated response teams and proactive maintenance",
-    Icon: HeadphonesIcon,
-    color: "from-cyan-500 to-blue-500",
-  },
-  {
-    title: "Future-Ready Security",
-    desc: "Built on open protocols and modular architecture — ready for tomorrow's challenges",
-    Icon: ShieldCheck,
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    title: "Villa to City Scale",
-    desc: "Solutions that scale effortlessly — from a single villa to an entire smart city deployment",
-    Icon: Maximize,
-    color: "from-cyan-500 to-blue-500",
-  },
-];
-
 const WhyChooseUs = () => {
   const { t } = useLang();
+
+  // ✅ Updated reasons array to use translation keys
+  const reasons = [
+    {
+      titleKey: "why.r1.title",
+      descKey: "why.r1.desc",
+      Icon: Brain,
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      titleKey: "why.r2.title",
+      descKey: "why.r2.desc",
+      Icon: Link2,
+      color: "from-cyan-500 to-blue-500",
+    },
+    {
+      titleKey: "why.r3.title",
+      descKey: "why.r3.desc",
+      Icon: Award,
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      titleKey: "why.r4.title",
+      descKey: "why.r4.desc",
+      Icon: HeadphonesIcon,
+      color: "from-cyan-500 to-blue-500",
+    },
+    {
+      titleKey: "why.r5.title",
+      descKey: "why.r5.desc",
+      Icon: ShieldCheck,
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      titleKey: "why.r6.title",
+      descKey: "why.r6.desc",
+      Icon: Maximize,
+      color: "from-cyan-500 to-blue-500",
+    },
+  ];
 
   return (
     <section className="py-28 relative overflow-hidden bg-gradient-to-b from-muted/30 to-background">
@@ -87,11 +88,11 @@ const WhyChooseUs = () => {
                     <r.Icon size={24} className="text-white" />
                   </div>
                   <h3 className="text-xl font-bold font-heading text-foreground">
-                    {r.title}
+                    {t(r.titleKey)}
                   </h3>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
-                  {r.desc}
+                  {t(r.descKey)}
                 </p>
               </div>
             </motion.div>
