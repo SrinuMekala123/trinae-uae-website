@@ -1,13 +1,12 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- ✅ Canonical URL -->
     <link rel="canonical" href="https://trinai.ae/" />
-
-    <!-- ✅ Sitemap Reference -->
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-
-    <!-- Google Tag Manager (Clean - No Console Logs) -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="shortcut icon" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -20,76 +19,71 @@
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-5CJVV3TD");
     </script>
-    <!-- End Google Tag Manager -->
-
-    <!-- Google Site Verification -->
-    <meta
-      name="google-site-verification"
-      content="Z8P8c8EKFKDJ0FZiBXKmgDP75zdcxc5UXhpqquHq200"
-    />
-
-    <!-- Basic Meta Tags -->
+    
+    <meta name="google-site-verification" content="Z8P8c8EKFKDJ0FZiBXKmgDP75zdcxc5UXhpqquHq200" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="TRINAI - Vision With Intelligence. AI CCTV Surveillance, Home Automation, and ICCC solutions in UAE."
-    />
-
-    <!-- Page Title -->
+    <meta name="description" content="TRINAI - Vision With Intelligence. AI CCTV Surveillance, Home Automation, and ICCC solutions in UAE." />
+    
     <title>TRINAI | AI Security & Smart Solutions</title>
-
-    <!-- ✅ Open Graph / Facebook (Using local logo from public folder) -->
-    <meta
-      property="og:title"
-      content="TRINAI | AI Security & Smart Solutions"
-    />
-    <meta
-      property="og:description"
-      content="AI CCTV Surveillance, Home Automation, and ICCC solutions in UAE"
-    />
+    
+    <meta property="og:title" content="TRINAI | AI Security & Smart Solutions" />
+    <meta property="og:description" content="AI CCTV Surveillance, Home Automation, and ICCC solutions in UAE" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://trinai.ae/" />
     <meta property="og:image" content="https://trinai.ae/logo.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
-    <meta
-      property="og:image:alt"
-      content="TRINAI - AI Security & Smart Solutions UAE"
-    />
+    <meta property="og:image:alt" content="TRINAI - AI Security & Smart Solutions UAE" />
     <meta property="og:site_name" content="TRINAI" />
-
-    <!-- ✅ Twitter Card (Using local logo from public folder) -->
+    
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@TrinaiUAE" />
-    <meta
-      name="twitter:title"
-      content="TRINAI | AI Security & Smart Solutions"
-    />
-    <meta
-      name="twitter:description"
-      content="AI CCTV Surveillance, Home Automation, and ICCC solutions in UAE"
-    />
+    <meta name="twitter:title" content="TRINAI | AI Security & Smart Solutions" />
+    <meta name="twitter:description" content="AI CCTV Surveillance, Home Automation, and ICCC solutions in UAE" />
     <meta name="twitter:image" content="https://trinai.ae/logo.png" />
-    <meta
-      name="twitter:image:alt"
-      content="TRINAI - AI Security & Smart Solutions UAE"
-    />
+    <meta name="twitter:image:alt" content="TRINAI - AI Security & Smart Solutions UAE" />
+
+    <!-- ✅ JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "TRINAI",
+          "alternateName": "Trinai AI Security & Smart Solutions",
+          "description": "TRINAI - Vision With Intelligence. AI CCTV Surveillance, Home Automation, and ICCC solutions in UAE.",
+          "url": "https://trinai.ae/",
+          "logo": { "@type": "ImageObject", "url": "https://trinai.ae/logo-white.png", "width": 1200, "height": 630 },
+          "image": "https://trinai.ae/logo-white.png",
+          "sameAs": ["https://twitter.com/TrinaiUAE"],
+          "areaServed": { "@type": "Country", "name": "United Arab Emirates" },
+          "address": { "@type": "PostalAddress", "addressCountry": "AE", "addressRegion": "Dubai" },
+          "knowsAbout": ["AI CCTV Surveillance", "Home Automation", "ICCC Solutions", "Smart Security Systems", "Commercial CCTV Installation"],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "AI Security & Smart Solutions",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI CCTV Surveillance" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Home Automation" }},
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ICCC Solutions" }}
+            ]
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://trinai.ae/" }]
+        }
+      ]
+    }
+    </script>
   </head>
-
   <body>
-    <!-- Google Tag Manager (noscript) -->
     <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-5CJVV3TD"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CJVV3TD" height="0" width="0" style="display: none; visibility: hidden"></iframe>
     </noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

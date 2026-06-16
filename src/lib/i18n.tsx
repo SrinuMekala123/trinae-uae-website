@@ -1242,8 +1242,12 @@ const translations: Translations = {
   // "why.title1": { en: "Why Businesses Choose", ar: "لماذا تختارنا المؤسسات" },
   // "why.title2": { en: "Trinai", ar: "" },
   "why.title1": {
-    en: "Why Leading Businesses Trust Trinai",
-    ar: "لماذا تثق المؤسسات الرائدة بترينآي", // ✅ Fixed
+    en: "Why Leading Businesses Trust",
+    ar: "لماذا تثق المؤسسات الرائدة بـ",
+  },
+  "why.title2": {
+    en: "Trinai",
+    ar: "ترينآي",
   },
 
   "why.desc": {

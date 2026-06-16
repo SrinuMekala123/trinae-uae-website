@@ -1,5 +1,6 @@
 // src/lib/strapi.ts
-const STRAPI_URL = import.meta.env.VITE_STRAPI_URL || "http://localhost:1337";
+// const STRAPI_URL = import.meta.env.VITE_STRAPI_URL || "http://localhost:1337";
+const STRAPI_URL = "http://183.82.117.36:2338";
 
 export interface BlogPost {
   id: number;
