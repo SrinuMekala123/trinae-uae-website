@@ -3,48 +3,45 @@
 // import { Calendar, ArrowRight, Search, Tag, Clock } from "lucide-react";
 // import Navbar from "@/components/Navbar";
 // import Footer from "@/components/Footer";
-// import { useState } from "react";
+// import { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
-
-// // Import local blog image
-// import blogImage from "@/blogimages/Blogimage.jpg";
-
-// // Blog post data with bilingual support
-// const blogPosts = [
-//   {
-//     id: 1,
-//     title: {
-//       en: "Why ELV Systems Are the Foundation of Smart Buildings in Dubai",
-//       ar: "لماذا تُعد أنظمة الجهد المنخفض الأساس للمباني الذكية في دبي",
-//     },
-//     excerpt: {
-//       en: "Discover how Extra Low Voltage systems power Dubai's smart buildings with intelligent automation, security, and energy efficiency.",
-//       ar: "اكتشف كيف تُشغّل أنظمة الجهد المنخفض المباني الذكية في دبي من خلال الأتمتة الذكية، والأمان، وكفاءة الطاقة.",
-//     },
-//     image: blogImage,
-//     category: {
-//       en: "ELV Solutions",
-//       ar: "حلول الجهد المنخفض",
-//     },
-//     date: "May 18, 2026",
-//     readTime: {
-//       en: "8 min read",
-//       ar: "8 دقائق قراءة",
-//     },
-//     slug: "why-elv-systems-foundation-smart-buildings-dubai",
-//   },
-// ];
+// import { fetchBlogPosts, type BlogPost } from "@/lib/strapi";
 
 // const BlogPage = () => {
 //   const { t, lang } = useLang();
 //   const navigate = useNavigate();
 //   const [searchTerm, setSearchTerm] = useState("");
+//   const [posts, setPosts] = useState<BlogPost[]>([]);
+//   const [loading, setLoading] = useState(true);
 
-//   const filteredPosts = blogPosts.filter(
-//     (post) =>
-//       post.title[lang].toLowerCase().includes(searchTerm.toLowerCase()) ||
-//       post.excerpt[lang].toLowerCase().includes(searchTerm.toLowerCase()),
-//   );
+//   useEffect(() => {
+//     let mounted = true;
+
+//     const loadPosts = async () => {
+//       setLoading(true);
+//       try {
+//         const data = await fetchBlogPosts(lang, searchTerm);
+//         if (mounted) setPosts(data);
+//       } catch (err) {
+//         console.error("Error fetching posts:", err);
+//       } finally {
+//         if (mounted) setLoading(false);
+//       }
+//     };
+
+//     loadPosts();
+//     return () => {
+//       mounted = false;
+//     };
+//   }, [lang, searchTerm]);
+
+//   const filteredPosts = searchTerm
+//     ? posts.filter(
+//         (post) =>
+//           post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+//           post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()),
+//       )
+//     : posts;
 
 //   return (
 //     <div
@@ -103,36 +100,52 @@
 //         </div>
 //       </section>
 
-//       {/* Blog Grid */}
 //       <section className="py-16 bg-background">
 //         <div className="container mx-auto px-4">
-//           {filteredPosts.length > 0 ? (
+//           {loading ? (
+//             <div className="text-center py-20">
+//               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto" />
+//               <p className="mt-4 text-muted-foreground">
+//                 {lang === "ar" ? "جاري التحميل..." : "Loading articles..."}
+//               </p>
+//             </div>
+//           ) : filteredPosts.length > 0 ? (
 //             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
 //               {filteredPosts.map((post, index) => (
 //                 <motion.article
-//                   key={post.id}
+//                   key={post.documentId}
 //                   initial={{ opacity: 0, y: 20 }}
 //                   whileInView={{ opacity: 1, y: 0 }}
 //                   viewport={{ once: true }}
 //                   transition={{ delay: index * 0.1 }}
-//                   // ✅ Navigate to root-level slug (no /blog/ prefix)
 //                   onClick={() => navigate(`/${post.slug}`)}
 //                   className="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col"
 //                 >
-//                   {/* Image - Shows Complete Image */}
-//                   <div className="relative overflow-hidden">
-//                     <img
-//                       src={post.image}
-//                       alt={post.title[lang]}
-//                       className="w-full h-auto object-contain"
-//                       loading="lazy"
-//                     />
-//                     <span className="absolute top-4 left-4 px-3 py-1 bg-primary/90 text-white text-xs font-semibold rounded-full backdrop-blur-sm">
-//                       {post.category[lang]}
+
+//                   <div className="relative w-full h-48 bg-gray-100 overflow-hidden">
+//                     {post.image ? (
+//                       <img
+//                         src={post.image}
+//                         alt={post.title}
+//                         className="w-full h-full object-cover"
+//                         loading="lazy"
+//                         onError={(e) => {
+//                           e.currentTarget.src =
+//                             "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23e5e7eb' width='400' height='300'/%3E%3Ctext fill='%239ca3af' x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='14'%3ENo Image%3C/text%3E%3C/svg%3E";
+//                           e.currentTarget.onerror = null;
+//                         }}
+//                       />
+//                     ) : (
+//                       <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-200 to-gray-300">
+//                         <Tag size={40} className="text-gray-400" />
+//                       </div>
+//                     )}
+//                     <span className="absolute top-4 left-4 px-3 py-1 bg-primary/90 text-white text-xs font-semibold rounded-full backdrop-blur-sm z-10">
+//                       {post.category}
 //                     </span>
 //                   </div>
 
-//                   {/* Content */}
+
 //                   <div className="p-6 flex flex-col flex-1">
 //                     <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
 //                       <div className="flex items-center gap-1">
@@ -141,16 +154,16 @@
 //                       </div>
 //                       <div className="flex items-center gap-1">
 //                         <Clock size={14} />
-//                         <span>{post.readTime[lang]}</span>
+//                         <span>{post.readTime}</span>
 //                       </div>
 //                     </div>
 
 //                     <h3 className="text-xl font-bold font-heading text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors">
-//                       {post.title[lang]}
+//                       {post.title}
 //                     </h3>
 
 //                     <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-1">
-//                       {post.excerpt[lang]}
+//                       {post.excerpt}
 //                     </p>
 
 //                     <div className="flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
@@ -190,6 +203,7 @@
 
 // export default BlogPage;
 
+
 // src/pages/BlogPage.tsx
 import { motion } from "framer-motion";
 import { useLang } from "@/lib/i18n";
@@ -214,7 +228,10 @@ const BlogPage = () => {
       setLoading(true);
       try {
         const data = await fetchBlogPosts(lang, searchTerm);
-        if (mounted) setPosts(data);
+        if (mounted) {
+          console.log(`✅ Loaded ${data.length} posts for ${lang}`);
+          setPosts(data);
+        }
       } catch (err) {
         console.error("Error fetching posts:", err);
       } finally {
@@ -230,10 +247,10 @@ const BlogPage = () => {
 
   const filteredPosts = searchTerm
     ? posts.filter(
-        (post) =>
-          post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()),
-      )
+      (post) =>
+        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()),
+    )
     : posts;
 
   return (
@@ -266,15 +283,14 @@ const BlogPage = () => {
         </div>
       </section>
 
-      {/* Search */}
+      {/* Search Section */}
       <section className="py-8 bg-background border-b border-gray-200/50">
         <div className="container mx-auto px-4">
           <div className="max-w-md mx-auto">
             <div className="relative">
               <Search
-                className={`absolute top-1/2 -translate-y-1/2 text-muted-foreground ${
-                  lang === "ar" ? "right-3" : "left-3"
-                }`}
+                className={`absolute top-1/2 -translate-y-1/2 text-muted-foreground ${lang === "ar" ? "right-3" : "left-3"
+                  }`}
                 size={18}
               />
               <input
@@ -284,9 +300,11 @@ const BlogPage = () => {
                 }
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className={`w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 bg-white text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all ${
-                  lang === "ar" ? "text-right pr-10 pl-4" : ""
-                }`}
+                className={`w-full py-3 rounded-xl border border-gray-200 bg-white text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all ${lang === "ar"
+                  ? "text-right pr-10 pl-4"
+                  : "text-left pl-10 pr-4"
+                  }`}
+                dir={lang === "ar" ? "rtl" : "ltr"}
               />
             </div>
           </div>
@@ -314,53 +332,68 @@ const BlogPage = () => {
                   transition={{ delay: index * 0.1 }}
                   onClick={() => navigate(`/${post.slug}`)}
                   className="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col"
+                  dir={lang === "ar" ? "rtl" : "ltr"}
                 >
-                  {/* Image Section - Simple & Reliable */}
-                  <div className="relative w-full h-48 bg-gray-100 overflow-hidden">
-                    {post.image ? (
+                  {/* ✅ IMPROVED: Image Section with Better Validation */}
+                  <div className="relative w-full h-48 bg-gradient-to-br from-primary/5 to-primary/10 overflow-hidden">
+                    {post.image && post.image.trim() !== "" ? (
                       <img
                         src={post.image}
                         alt={post.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
                         onError={(e) => {
-                          e.currentTarget.src =
-                            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23e5e7eb' width='400' height='300'/%3E%3Ctext fill='%239ca3af' x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='14'%3ENo Image%3C/text%3E%3C/svg%3E";
-                          e.currentTarget.onerror = null;
+                          console.warn(`⚠️ Failed to load image for: ${post.title}`);
+                          // Hide broken image and show placeholder
+                          e.currentTarget.style.display = "none";
+                          const parent = e.currentTarget.parentElement;
+                          if (parent && !parent.querySelector('.fallback-icon')) {
+                            const fallback = document.createElement('div');
+                            fallback.className = 'fallback-icon w-full h-full flex items-center justify-center';
+                            fallback.innerHTML = `<svg class="w-12 h-12 text-primary/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>`;
+                            parent.appendChild(fallback);
+                          }
                         }}
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-200 to-gray-300">
-                        <Tag size={40} className="text-gray-400" />
+                      // ✅ Placeholder when no image
+                      <div className="w-full h-full flex items-center justify-center">
+                        <Tag size={40} className="text-primary/30" />
                       </div>
                     )}
-                    <span className="absolute top-4 left-4 px-3 py-1 bg-primary/90 text-white text-xs font-semibold rounded-full backdrop-blur-sm z-10">
+                    <span className={`absolute top-4 ${lang === "ar" ? "right-4" : "left-4"} px-3 py-1 bg-primary/90 text-white text-xs font-semibold rounded-full backdrop-blur-sm z-10`}>
                       {post.category}
                     </span>
                   </div>
 
                   {/* Content */}
                   <div className="p-6 flex flex-col flex-1">
-                    <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
-                      <div className="flex items-center gap-1">
+                    <div className={`flex items-center gap-4 text-xs text-muted-foreground mb-3 ${lang === "ar" ? "flex-row-reverse" : ""
+                      }`}>
+                      <div className={`flex items-center gap-1 ${lang === "ar" ? "flex-row-reverse" : ""
+                        }`}>
                         <Calendar size={14} />
                         <span>{post.date}</span>
                       </div>
-                      <div className="flex items-center gap-1">
+                      <div className={`flex items-center gap-1 ${lang === "ar" ? "flex-row-reverse" : ""
+                        }`}>
                         <Clock size={14} />
                         <span>{post.readTime}</span>
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-bold font-heading text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-bold font-heading text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors"
+                      dir={lang === "ar" ? "rtl" : "ltr"}>
                       {post.title}
                     </h3>
 
-                    <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-1">
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-1"
+                      dir={lang === "ar" ? "rtl" : "ltr"}>
                       {post.excerpt}
                     </p>
 
-                    <div className="flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
+                    <div className={`flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all ${lang === "ar" ? "flex-row-reverse" : ""
+                      }`}>
                       {lang === "ar" ? "اقرأ المزيد" : "Read Article"}
                       <ArrowRight
                         size={16}
