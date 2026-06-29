@@ -330,7 +330,15 @@ const BlogPage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  onClick={() => navigate(`/${post.slug}`)}
+                  onClick={() => {
+  if (import.meta.env.PROD) {
+    // Production – static HTML files
+    window.location.href = `/${post.slug}.html`;
+  } else {
+    // Development – use React Router navigation
+    navigate(`/${post.slug}`);
+  }
+}}
                   className="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col"
                   dir={lang === "ar" ? "rtl" : "ltr"}
                 >
