@@ -217,6 +217,7 @@ const TRANSPARENT_PAGES = [
   "/home-automation",
   "/ai-analytics",
   "/surveillance-systems",
+  "/software-development",
 ];
 
 const Navbar = () => {

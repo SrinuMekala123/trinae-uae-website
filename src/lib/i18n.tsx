@@ -2271,6 +2271,105 @@ const translations: Translations = {
     en: "Discover the latest insights on AI surveillance, smart automation, and security technology",
     ar: "اكتشف أحدث الرؤى حول المراقبة بالذكاء الاصطناعي، الأتمتة الذكية، وتقنيات الأمان",
   },
+
+  // ==================== SOFTWARE DEVELOPMENT PAGE & SERVICES SECTION ====================
+  "servicesPage.software.title": {
+    en: "Software Services Company in Dubai",
+    ar: "شركة خدمات البرمجيات في دبي",
+  },
+  "servicesPage.software.desc": {
+    en: "Drive innovation and accelerate business growth with HRMS, ERP, and Task Management System that delivers secure, scalable, and future-ready digital solutions.",
+    ar: "ادفع عجلة الابتكار وسرّع نمو أعمالك من خلال نظام إدارة الموارد البشرية (HRMS) وتخطيط موارد المؤسسات (ERP) ونظام إدارة المهام الذي يوفر حلولاً رقمية آمنة وقابلة للتطوير وجاهزة للمستقبل.",
+  },
+  "servicesPage.software.items.1": {
+    en: "Custom Software Development tailored for your business processes",
+    ar: "تطوير برمجيات مخصصة لتناسب عمليات عملك",
+  },
+  "servicesPage.software.items.2": {
+    en: "HRMS (Human Resource Management System) for streamlined HR operations",
+    ar: "نظام إدارة الموارد البشرية (HRMS) لتبسيط عمليات الموارد البشرية",
+  },
+  "servicesPage.software.items.3": {
+    en: "Task Management System for improved team collaboration",
+    ar: "نظام إدارة المهام لتحسين تعاون الفريق",
+  },
+  "servicesPage.software.items.4": {
+    en: "ANPR Camera Solutions for automated vehicle monitoring",
+    ar: "حلول كاميرات التعرف التلقائي على لوحات السيارات (ANPR) للمراقبة الآلية للمركبات",
+  },
+  "servicesPage.software.items.5": {
+    en: "ERP Solutions for integrated business operations",
+    ar: "حلول تخطيط موارد المؤسسات (ERP) لعمليات تجارية متكاملة",
+  },
+
+  "softwarePage.hero.title": {
+    en: "Software Services Company in Dubai",
+    ar: "شركة خدمات البرمجيات في دبي",
+  },
+  "softwarePage.hero.subtitle1": {
+    en: "Drive innovation and accelerate business growth with secure, scalable, and future-ready digital solutions.",
+    ar: "ادفع عجلة الابتكار وسرّع نمو الأعمال بحلول رقمية آمنة وقابلة للتطوير وجاهزة للمستقبل.",
+  },
+  "softwarePage.hero.subtitle2": {
+    en: "Custom Software, HRMS, ERP, Task Management, and ANPR Solutions tailored for your business.",
+    ar: "البرمجيات المخصصة، ونظام إدارة الموارد البشرية (HRMS)، ونظام تخطيط موارد المؤسسات (ERP)، وإدارة المهام، وحلول ANPR المصممة خصيصاً لعملك.",
+  },
+  "softwarePage.hero.simpleDesc": {
+    en: "Innovative, secure, and scalable custom software, HRMS, ERP, and ANPR solutions designed to empower your business.",
+    ar: "حلول برمجية مخصصة، وإدارة الموارد البشرية (HRMS)، وتخطيط موارد المؤسسات (ERP)، وأنظمة ANPR المبتكرة والآمنة والقابلة للتطوير والمصممة لتمكين عملك.",
+  },
+  "softwarePage.intro.p1": {
+    en: "Drive innovation and accelerate business growth with an HRMS, ERP, and Task Management System that delivers secure, scalable, and future-ready digital solutions.",
+    ar: "ادفع عجلة الابتكار وسرّع نمو أعمالك من خلال نظام إدارة الموارد البشرية (HRMS) وتخطيط موارد المؤسسات (ERP) ونظام إدارة المهام الذي يوفر حلولاً رقمية آمنة وقابلة للتطوير وجاهزة للمستقبل.",
+  },
+  "softwarePage.intro.p2": {
+    en: "Whether you're a startup or an established enterprise, our experienced team designs software tailored to your business needs. As a leading App Development Company in Dubai, we build reliable applications that improve productivity, automate operations, and enhance customer experiences. From custom platforms to enterprise-grade solutions, our Web Development Services in Dubai focus on quality, performance, and long-term value. Partner with a Software Services Company in Dubai that transforms ideas into powerful digital solutions and helps your business stay ahead in today's competitive market.",
+    ar: "سواء كنت شركة ناشئة أو مؤسسة قائمة، فإن فريقنا ذو الخبرة يصمم برمجيات مخصصة لاحتياجات عملك. بصفتنا شركة رائدة في تطوير التطبيقات في دبي، نقوم ببناء تطبيقات موثوقة تعمل على تحسين الإنتاجية وأتمتة العمليات وتعزيز تجارب العملاء. من المنصات المخصصة إلى الحلول على مستوى المؤسسات، تركز خدمات تطوير الويب الخاصة بنا في دبي على الجودة والأداء والقيمة على المدى الطويل. شريك مع شركة خدمات برمجيات في دبي تحول الأفكار إلى حلول رقمية قوية وتساعد عملك على البقاء في الصدارة في السوق التنافسية اليوم.",
+  },
+  "softwarePage.services.heading": {
+    en: "Our Software Services",
+    ar: "خدماتنا البرمجية",
+  },
+  "softwarePage.services.custom.title": {
+    en: "Custom Software Development",
+    ar: "تطوير البرمجيات المخصصة",
+  },
+  "softwarePage.services.custom.desc": {
+    en: "Build tailored software solutions designed specifically for your business processes. We develop scalable, secure, and high-performance applications that improve efficiency and support future growth.",
+    ar: "ابنِ حلول برمجية مخصصة ومصممة خصيصاً لعمليات عملك. نحن نطور تطبيقات قابلة للتطوير وآمنة وعالية الأداء تعمل على تحسين الكفاءة ودعم النمو المستقبلي.",
+  },
+  "softwarePage.services.hrms.title": {
+    en: "HRMS (Human Resource Management System)",
+    ar: "نظام إدارة الموارد البشرية (HRMS)",
+  },
+  "softwarePage.services.hrms.desc": {
+    en: "Simplify HR operations with an intelligent HRMS solution that manages employee records, attendance, payroll, leave management, recruitment, and performance tracking from a single platform.",
+    ar: "بسّط عمليات الموارد البشرية باستخدام حل HRMS ذكي يدير سجلات الموظفين والحضور والرواتب وإدارة الإجازات والتوظيف وتتبع الأداء من منصة واحدة.",
+  },
+  "softwarePage.services.tasks.title": {
+    en: "Task Management System",
+    ar: "نظام إدارة المهام",
+  },
+  "softwarePage.services.tasks.desc": {
+    en: "Improve team collaboration and productivity with a centralized task management system. Plan projects, assign tasks, track progress, manage deadlines, and monitor performance in real-time.",
+    ar: "حسن تعاون الفريق وإنتاجيته من خلال نظام مركزي لإدارة المهام. خطط للمشاريع، وعيّن المهام، وتتبع التقدم، وأدر المواعيد النهائية، وراقب الأداء في الوقت الفعلي.",
+  },
+  "softwarePage.services.anpr.title": {
+    en: "ANPR Camera Solutions",
+    ar: "حلول كاميرات التعرف التلقائي على لوحات السيارات (ANPR)",
+  },
+  "softwarePage.services.anpr.desc": {
+    en: "Enhance security and automate vehicle monitoring with AI-powered Automatic Number Plate Recognition (ANPR) solutions. Ideal for parking management, gated communities, toll systems, and smart city applications.",
+    ar: "عزز الأمن وأتمتة مراقبة المركبات من خلال حلول التعرف التلقائي على لوحات أرقام المركبات (ANPR) المدعومة بالذكاء الاصطناعي. مثالي لإدارة المواقف، والمجتمعات السكنية المغلقة، وأنظمة التعرفة المرورية، وتطبيقات المدن الذكية.",
+  },
+  "softwarePage.services.erp.title": {
+    en: "ERP Solutions",
+    ar: "حلول تخطيط موارد المؤسسات (ERP)",
+  },
+  "softwarePage.services.erp.desc": {
+    en: "Streamline your business operations with a comprehensive Enterprise Resource Planning (ERP) system. Integrate finance, inventory, sales, procurement, HR, and reporting into one centralized platform for better decision-making.",
+    ar: "بسّط عمليات عملك باستخدام نظام تخطيط موارد المؤسسات (ERP) الشامل. ادمج التمويل والمخزون والمبيعات والمشتريات والموارد البشرية والتقارير في منصة مركزية واحدة لاتخاذ قرارات أفضل.",
+  },
 };
 
 interface LangContextType {

@@ -18,6 +18,7 @@ import ContactPage from "@/pages/ContactPage";
 import BlogPage from "@/pages/BlogPage";
 import BlogPostPage from "@/pages/BlogPostPage";
 import NotFound from "@/pages/NotFound";
+import SoftwareDevelopmentPage from "./pages/SoftwareDevelopmentPage";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,7 @@ function App() {
                 <Route path="/blog/:slug" element={<BlogPostPage />} />
                 <Route path="/:slug" element={<BlogPostPage />} />
                 <Route path="*" element={<NotFound />} />
+                <Route path="/software-development" element={<SoftwareDevelopmentPage />} />
               </Routes>
             </BrowserRouter>
             <Toaster />

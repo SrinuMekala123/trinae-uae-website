@@ -299,6 +299,7 @@ const Footer = () => {
     { labelKey: "servicesPage.home.title", path: "/home-automation" },
     { labelKey: "servicesPage.elv.title", path: "/elv-solutions" },
     { labelKey: "servicesPage.analytics.title", path: "/ai-analytics" },
+    { label: lang === "ar" ? "خدمات البرمجيات" : "Software Services", path: "/software-development" },
   ];
 
   // Contact Info
@@ -415,7 +416,8 @@ const Footer = () => {
                       size={12}
                       className="opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400"
                     />
-                    {t(service.labelKey)}
+                    {/* ✅ Show direct label for software-development, use translation for others */}
+                    {service.label || t(service.labelKey!)}
                   </button>
                 </li>
               ))}
