@@ -18,11 +18,6 @@ const SoftwareDevelopmentPage = () => {
 
     const services = [
         {
-            title: t("softwarePage.services.custom.title"),
-            description: t("softwarePage.services.custom.desc"),
-            image: customImage,
-        },
-        {
             title: t("softwarePage.services.hrms.title"),
             description: t("softwarePage.services.hrms.desc"),
             image: hrmsImage,
@@ -41,6 +36,11 @@ const SoftwareDevelopmentPage = () => {
             title: t("softwarePage.services.erp.title"),
             description: t("softwarePage.services.erp.desc"),
             image: erpImage,
+        },
+        {
+            title: t("softwarePage.services.custom.title"),
+            description: t("softwarePage.services.custom.desc"),
+            image: customImage,
         },
     ];
 
@@ -111,36 +111,42 @@ const SoftwareDevelopmentPage = () => {
                     </motion.h2>
 
                     <div className="grid md:grid-cols-2 gap-8">
-                        {services.map((service, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: index % 2 === 0 ? -60 : 60 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: false, amount: 0.15 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                className="glass rounded-2xl hover:shadow-xl transition-shadow flex flex-col min-h-[500px] overflow-hidden group"
-                            >
-                                {/* Card Image */}
-                                <div className="relative w-full h-64 md:h-72 bg-muted/30 overflow-hidden shrink-0">
-                                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-10 blur-lg transition-opacity duration-300" />
-                                    <img
-                                        src={service.image}
-                                        alt={service.title}
-                                        className="absolute inset-0 w-full h-full object-contain p-4 rounded-t-2xl group-hover:scale-105 transition-transform duration-500"
-                                    />
-                                </div>
+                        {services.map((service, index) => {
+                            const isCustom = service.image === customImage;
+                            return (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, x: index % 2 === 0 ? -60 : 60 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: false, amount: 0.15 }}
+                                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                                    className={`glass rounded-2xl hover:shadow-xl transition-shadow flex flex-col ${isCustom ? "md:col-span-2 md:flex-row md:min-h-[350px]" : "min-h-[500px]"
+                                        } overflow-hidden group`}
+                                >
+                                    {/* Card Image */}
+                                    <div className={`relative w-full ${isCustom ? "md:w-1/2 md:h-auto min-h-[250px] md:min-h-[350px]" : "h-64 md:h-72"
+                                        } bg-muted/30 overflow-hidden shrink-0`}>
+                                        <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-10 blur-lg transition-opacity duration-300" />
+                                        <img
+                                            src={service.image}
+                                            alt={service.title}
+                                            className="absolute inset-0 w-full h-full object-contain p-4 rounded-t-2xl group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                    </div>
 
-                                {/* Card Content */}
-                                <div className="pt-4 pb-6 px-6 flex flex-col justify-center flex-1 min-w-0 space-y-4">
-                                    <h3 className="text-xl md:text-2xl font-bold font-heading text-foreground group-hover:text-primary transition-colors">
-                                        {service.title}
-                                    </h3>
-                                    <p className="text-sm text-muted-foreground leading-relaxed break-words whitespace-normal">
-                                        {service.description}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        ))}
+                                    {/* Card Content */}
+                                    <div className={`pt-4 pb-6 px-6 flex flex-col justify-center flex-1 min-w-0 space-y-4 ${isCustom ? "md:w-1/2" : ""
+                                        }`}>
+                                        <h3 className="text-xl md:text-2xl font-bold font-heading text-foreground group-hover:text-primary transition-colors">
+                                            {service.title}
+                                        </h3>
+                                        <p className="text-sm text-muted-foreground leading-relaxed break-words whitespace-normal">
+                                            {service.description}
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>

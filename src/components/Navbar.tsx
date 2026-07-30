@@ -212,6 +212,7 @@ const navItems: NavItem[] = [
 // ✅ Pages that should have transparent header at top
 const TRANSPARENT_PAGES = [
   "/",
+  "/services",
   "/elv-solutions",
   "/iccc",
   "/home-automation",

@@ -1611,6 +1611,10 @@ const translations: Translations = {
 
   // ==================== SERVICES PAGE ====================
   "servicesPage.title": { en: "Our Services", ar: "خدماتنا" },
+  "servicesPage.subtitle": {
+    en: "World-class ELV integration, AI-powered security, and custom software systems engineering the future of smart infrastructure in the UAE.",
+    ar: "تكامل أنظمة الجهد المنخفض ذات المستوى العالمي، والأمن المدعوم بالذكاء الاصطناعي، وهندسة برمجيات مخصصة تصنع مستقبل البنية التحتية الذكية في الإمارات."
+  },
   "servicesPage.elv.title": {
     en: "ELV Solutions in UAE",
     ar: "حلول الجهد المنخفض في الإمارات",

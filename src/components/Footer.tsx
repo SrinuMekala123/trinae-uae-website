@@ -295,11 +295,11 @@ const Footer = () => {
       labelKey: "servicesPage.surveillance.title",
       path: "/surveillance-systems",
     },
+    { label: lang === "ar" ? "خدمات البرمجيات" : "Software Services", path: "/software-development" },
     { labelKey: "servicesPage.iccc.title", path: "/iccc" },
     { labelKey: "servicesPage.home.title", path: "/home-automation" },
     { labelKey: "servicesPage.elv.title", path: "/elv-solutions" },
     { labelKey: "servicesPage.analytics.title", path: "/ai-analytics" },
-    { label: lang === "ar" ? "خدمات البرمجيات" : "Software Services", path: "/software-development" },
   ];
 
   // Contact Info
