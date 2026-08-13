@@ -219,6 +219,11 @@ const TRANSPARENT_PAGES = [
   "/ai-analytics",
   "/surveillance-systems",
   "/software-development",
+  "/software-development/hrms",
+  "/software-development/erp",
+  "/software-development/custom-software",
+  "/software-development/task-management",
+  "/software-development/anpr-solutions",
 ];
 
 const Navbar = () => {

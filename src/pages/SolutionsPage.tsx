@@ -10,8 +10,8 @@ const SolutionsPage = () => {
   const solutions = [
     {
       title: "AI CCTV Surveillance",
-      subtitle: "Beyond Watching — Understanding",
-      desc: "Next-gen AI cameras that don't just record — they analyze, predict, and respond. Our neural-network powered surveillance transforms passive footage into proactive security intelligence.",
+      subtitle: "Beyond Watching - Understanding",
+      desc: "Next-gen AI cameras that don't just record - they analyze, predict, and respond. Our neural-network powered surveillance transforms passive footage into proactive security intelligence.",
       icon: Camera,
       image:
         "https://ik.imagekit.io/e7pijyscb/Trinai%20UAE/Home%20page/images%20trinai%20uae/Ai%20surveillance.png?updatedAt=1771485893304",
@@ -28,7 +28,7 @@ const SolutionsPage = () => {
     {
       title: "Smart Home Automation",
       subtitle: "Your Home, Effortlessly Intelligent",
-      desc: "Transform your living space into a responsive, energy-efficient environment. From lighting scenes to climate zones — everything adapts to your lifestyle automatically.",
+      desc: "Transform your living space into a responsive, energy-efficient environment. From lighting scenes to climate zones - everything adapts to your lifestyle automatically.",
       icon: Home,
       image:
         "https://ik.imagekit.io/e7pijyscb/Trinai%20UAE/Home%20page/images%20trinai%20uae/home%20automation.png?updatedAt=1771485893293",
@@ -45,7 +45,7 @@ const SolutionsPage = () => {
     {
       title: "Integrated Command & Control",
       subtitle: "One Dashboard. Total Visibility.",
-      desc: "Unify all systems — surveillance, access control, fire safety, BMS — into a single intelligent command center with real-time situational awareness and coordinated incident response.",
+      desc: "Unify all systems - surveillance, access control, fire safety, BMS - into a single intelligent command center with real-time situational awareness and coordinated incident response.",
       icon: Monitor,
       image:
         "https://ik.imagekit.io/e7pijyscb/Trinai%20UAE/Home%20page/images%20trinai%20uae/iccc.png?updatedAt=1771485893493",
@@ -80,7 +80,7 @@ const SolutionsPage = () => {
             animate={{ opacity: 1 }}
             className="text-lg text-muted-foreground max-w-3xl mx-auto"
           >
-            Three Pillars of Intelligent Security — Each solution is engineered
+            Three Pillars of Intelligent Security - Each solution is engineered
             to work independently or as part of a unified intelligent ecosystem.
           </motion.p>
         </div>

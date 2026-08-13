@@ -183,13 +183,15 @@
 
 import { motion } from "framer-motion";
 import { useLang } from "@/lib/i18n";
+import { useNavigate } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 // Import images for each service section
 import customImage from "@/assets/d.png";
 import hrmsImage from "@/assets/e.png";
-import tasksImage from "@/assets/b.png";
+import tasksImage from "@/assets/manage_task.png";
 import anprImage from "@/assets/a.png";
 import erpImage from "@/assets/c.png";
 
@@ -198,32 +200,38 @@ import softwareVideo from "@/assets/software services.mp4";
 
 const SoftwareDevelopmentPage = () => {
     const { lang, t } = useLang();
+    const navigate = useNavigate();
 
     const services = [
         {
             title: t("softwarePage.services.hrms.title"),
             description: t("softwarePage.services.hrms.desc"),
             image: hrmsImage,
+            link: "/software-development/hrms",
         },
         {
             title: t("softwarePage.services.tasks.title"),
             description: t("softwarePage.services.tasks.desc"),
             image: tasksImage,
+            link: "/software-development/task-management",
         },
         {
             title: t("softwarePage.services.anpr.title"),
             description: t("softwarePage.services.anpr.desc"),
             image: anprImage,
+            link: "/software-development/anpr-solutions",
         },
         {
             title: t("softwarePage.services.erp.title"),
             description: t("softwarePage.services.erp.desc"),
             image: erpImage,
+            link: "/software-development/erp",
         },
         {
             title: t("softwarePage.services.custom.title"),
             description: t("softwarePage.services.custom.desc"),
             image: customImage,
+            link: "/software-development/custom-software",
         },
     ];
 
@@ -301,6 +309,7 @@ const SoftwareDevelopmentPage = () => {
                     <div className="grid md:grid-cols-2 gap-8">
                         {services.map((service, index) => {
                             const isCustom = service.image === customImage;
+                            const hasLink = !!service.link;
                             return (
                                 <motion.div
                                     key={index}
@@ -308,8 +317,13 @@ const SoftwareDevelopmentPage = () => {
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: false, amount: 0.15 }}
                                     transition={{ duration: 0.6, delay: index * 0.1 }}
+                                    onClick={() => {
+                                        if (service.link) {
+                                            navigate(service.link);
+                                        }
+                                    }}
                                     className={`glass rounded-2xl hover:shadow-xl transition-shadow flex flex-col ${isCustom ? "md:col-span-2 md:flex-row md:min-h-[350px]" : "min-h-[500px]"
-                                        } overflow-hidden group`}
+                                        } overflow-hidden group ${hasLink ? "cursor-pointer" : ""}`}
                                 >
                                     {/* Card Image */}
                                     <div className={`relative w-full ${isCustom ? "md:w-1/2 md:h-auto min-h-[250px] md:min-h-[350px]" : "h-64 md:h-72"
@@ -331,6 +345,12 @@ const SoftwareDevelopmentPage = () => {
                                         <p className="text-sm text-muted-foreground leading-relaxed break-words whitespace-normal">
                                             {service.description}
                                         </p>
+                                        {hasLink && (
+                                            <div className="pt-2 text-primary font-semibold flex items-center gap-2 group-hover:underline text-sm">
+                                                <span>{lang === "ar" ? "عرض التفاصيل" : "Learn More"}</span>
+                                                <ArrowRight size={16} className={`transition-transform duration-300 group-hover:translate-x-1 ${lang === "ar" ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
+                                            </div>
+                                        )}
                                     </div>
                                 </motion.div>
                             );

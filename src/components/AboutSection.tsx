@@ -134,6 +134,8 @@ const AboutSection = () => {
     "about.features.2",
     "about.features.3",
     "about.features.4",
+    "about.features.5",
+    "about.features.6",
   ];
 
   return (

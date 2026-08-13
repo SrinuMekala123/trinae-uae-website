@@ -213,6 +213,7 @@ import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchBlogPosts, type BlogPost } from "@/lib/strapi";
+import { Helmet } from "react-helmet-async";
 
 const BlogPage = () => {
   const { t, lang } = useLang();
@@ -258,6 +259,10 @@ const BlogPage = () => {
       className="min-h-screen bg-background"
       dir={lang === "ar" ? "rtl" : "ltr"}
     >
+      <Helmet>
+        <title>{lang === "ar" ? "المدونة | TRINAI" : "Blog & Insights | TRINAI"}</title>
+        <meta name="description" content={lang === "ar" ? "اكتشف أحدث الرؤى حول المراقبة بالذكاء الاصطناعي، الأتمتة الذكية، وتقنيات الأمان" : "Discover the latest insights on AI surveillance, smart automation, and security technology"} />
+      </Helmet>
       <Navbar />
 
       {/* Hero Section */}
@@ -332,10 +337,10 @@ const BlogPage = () => {
                   transition={{ delay: index * 0.1 }}
                   onClick={() => {
   if (import.meta.env.PROD) {
-    // Production – static HTML files
+    // Production - static HTML files
     window.location.href = `/${post.slug}.html`;
   } else {
-    // Development – use React Router navigation
+    // Development - use React Router navigation
     navigate(`/${post.slug}`);
   }
 }}

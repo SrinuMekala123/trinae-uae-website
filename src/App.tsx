@@ -19,6 +19,11 @@ import BlogPage from "@/pages/BlogPage";
 import BlogPostPage from "@/pages/BlogPostPage";
 import NotFound from "@/pages/NotFound";
 import SoftwareDevelopmentPage from "./pages/SoftwareDevelopmentPage";
+import HRMSPage from "@/pages/HRMSPage";
+import ERPPage from "@/pages/ERPPage";
+import CustomSoftwarePage from "@/pages/CustomSoftwarePage";
+import TaskManagementPage from "./pages/TaskManagementPage";
+import ANPRPage from "./pages/ANPRPage";
 
 const queryClient = new QueryClient();
 
@@ -42,9 +47,14 @@ function App() {
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/blog" element={<BlogPage />} />
                 <Route path="/blog/:slug" element={<BlogPostPage />} />
+                <Route path="/software-development/hrms" element={<HRMSPage />} />
+                <Route path="/software-development/erp" element={<ERPPage />} />
+                <Route path="/software-development/custom-software" element={<CustomSoftwarePage />} />
+                <Route path="/software-development/task-management" element={<TaskManagementPage />} />
+                <Route path="/software-development/anpr-solutions" element={<ANPRPage />} />
+                <Route path="/software-development" element={<SoftwareDevelopmentPage />} />
                 <Route path="/:slug" element={<BlogPostPage />} />
                 <Route path="*" element={<NotFound />} />
-                <Route path="/software-development" element={<SoftwareDevelopmentPage />} />
               </Routes>
             </BrowserRouter>
             <Toaster />

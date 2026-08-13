@@ -161,7 +161,7 @@
 //             initial={{ opacity: 0, y: 20 }}
 //             animate={{ opacity: 1, y: 0 }}
 //             transition={{ duration: 0.5, delay: 0.2 }}
-//             className={`text-foreground ${lang === "ar" ? "text-right" : "text-left"}`}
+//             className={`blog-content text-foreground ${lang === "ar" ? "text-right" : "text-left"}`}
 //             dangerouslySetInnerHTML={{ __html: post.content }}
 //           />
 //         </div>
@@ -192,6 +192,30 @@ const BlogPostPage = () => {
 
   const [post, setPost] = useState<BlogPostWithContent | null>(null);
   const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
+
+  // Sync document.title manually as backup for aggressive browser caching
+  useEffect(() => {
+    let currentTitle = "Trinai Blog";
+    if (loading) {
+      currentTitle = lang === "ar" ? "مدونة تريناي" : "Trinai Blog";
+    } else if (notFound) {
+      currentTitle = lang === "ar" ? "المقال غير موجود | TRINAI" : "Post Not Found | TRINAI";
+    } else if (post) {
+      currentTitle = `${post.title} | TRINAI`;
+    }
+    document.title = currentTitle;
+  }, [loading, notFound, post, lang]);
+
+  // Handle redirect if post is not found
+  useEffect(() => {
+    if (notFound) {
+      const timer = setTimeout(() => {
+        navigate("/blog");
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [notFound, navigate]);
 
   useEffect(() => {
     if (!slug) {
@@ -203,6 +227,7 @@ const BlogPostPage = () => {
 
     const loadPost = async () => {
       setLoading(true);
+      setNotFound(false);
       try {
         const data = await fetchBlogPostBySlug(slug, lang);
 
@@ -212,12 +237,16 @@ const BlogPostPage = () => {
           console.log("✅ Post loaded:", data.title);
           console.log("📄 Content length:", data.content?.length);
           setPost(data);
+          setNotFound(false);
         } else {
-          navigate("/blog");
+          console.warn("⚠️ Post not found for slug:", slug);
+          setNotFound(true);
         }
       } catch (err) {
         console.error("Error loading post:", err);
-        navigate("/blog");
+        if (mounted) {
+          setNotFound(true);
+        }
       } finally {
         if (mounted) setLoading(false);
       }
@@ -236,7 +265,7 @@ const BlogPostPage = () => {
         dir={lang === "ar" ? "rtl" : "ltr"}
       >
         <Helmet>
-          <title>{lang === "ar" ? "جاري التحميل..." : "Loading..."}</title>
+          <title>{lang === "ar" ? "مدونة تريناي" : "Trinai Blog"}</title>
         </Helmet>
         <Navbar />
         <div className="flex items-center justify-center min-h-[60vh]">
@@ -245,6 +274,40 @@ const BlogPostPage = () => {
             <p className="text-muted-foreground">
               {lang === "ar" ? "جاري تحميل المقال..." : "Loading article..."}
             </p>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (notFound) {
+    return (
+      <div
+        className="min-h-screen bg-background"
+        dir={lang === "ar" ? "rtl" : "ltr"}
+      >
+        <Helmet>
+          <title>{lang === "ar" ? "المقال غير موجود | TRINAI" : "Post Not Found | TRINAI"}</title>
+        </Helmet>
+        <Navbar />
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <div className="text-center px-4">
+            <h1 className="text-4xl font-extrabold text-foreground mb-4">
+              {lang === "ar" ? "المقال غير موجود" : "Post Not Found"}
+            </h1>
+            <p className="text-muted-foreground mb-6">
+              {lang === "ar" 
+                ? "عذرًا، لم نتمكن من العثور على المقال الذي تبحث عنه. سيتم إعادة توجيهك إلى المدونة..." 
+                : "Sorry, we couldn't find the article you are looking for. Redirecting to blog..."}
+            </p>
+            <button
+              onClick={() => navigate("/blog")}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary/95 transition-all"
+            >
+              <ArrowLeft size={18} className={lang === "ar" ? "rotate-180" : ""} />
+              {lang === "ar" ? "العودة إلى المدونة" : "Back to Blog"}
+            </button>
           </div>
         </div>
         <Footer />
@@ -373,7 +436,7 @@ const BlogPostPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className={`text-foreground ${lang === "ar" ? "text-right" : "text-left"}`}
+            className={`blog-content text-foreground ${lang === "ar" ? "text-right" : "text-left"}`}
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </div>

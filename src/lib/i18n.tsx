@@ -1017,8 +1017,8 @@ const translations: Translations = {
   "hero.title2": { en: "Automation Solutions", ar: "وأنظمة أتمتة متقدمة" },
   "hero.title3": { en: "for the UAE & Beyond", ar: "في دولة الإمارات وخارجها" },
   "hero.desc": {
-    en: "End-to-end AI CCTV Surveillance, Home Automation, and Integrated Command & Control Center solutions to secure, automate, and optimize your spaces in real-time.",
-    ar: "نقدم حلولاً متكاملة تشمل أنظمة المراقبة الذكية، وأنظمة المنزل الذكي، ومراكز القيادة والتحكم لتعزيز الأمن، وتحسين الرؤية التشغيلية، وتمكين اتخاذ قرارات أكثر ذكاءً في الوقت الفعلي.",
+    en: "End-to-end AI CCTV Surveillance, Software Development, Integrated Command & Control Center (ICCC) systems, Home Automation, ELV Solutions, and AI Smart Analytics solutions to secure, automate, and optimize your spaces in real-time.",
+    ar: "نقدم حلولاً متكاملة تشمل أنظمة المراقبة الذكية، وتطوير البرمجيات، ومراكز القيادة والتحكم (ICCC)، وأنظمة المنزل الذكي، وأنظمة الجهد المنخفض (ELV)، والتحليلات الذكية بالذكاء الاصطناعي لتأمين وأتمتة وتحسين مساحاتكم في الوقت الفعلي.",
   },
   "hero.cta1": { en: "Book a Consultation", ar: "احجز استشارة الآن" },
   "hero.cta2": { en: "Explore Solutions", ar: "اكتشف حلولنا" },
@@ -1115,6 +1115,15 @@ const translations: Translations = {
     en: "AI Smart Analytics transforms video data into real-time insights, enabling intelligent monitoring and faster decision-making. Detect, analyze, and respond instantly with advanced AI-powered surveillance and analytics.",
     ar: "تحول التحليلات الذكية بالذكاء الاصطناعي بيانات الفيديو إلى رؤى فورية، مما يتيح المراقبة الذكية واتخاذ قرارات أسرع. اكتشف، حلل، واستجب فوراً بأنظمة مراقبة وتحليلات متقدمة مدعومة بالذكاء الاصطناعي.",
   },
+
+  "features.f6.title": {
+    en: "Software Development",
+    ar: "تطوير البرمجيات",
+  },
+  "features.f6.desc": {
+    en: "Drive innovation and business growth with custom software, HRMS, ERP, and Task Management systems engineered to meet your exact specifications.",
+    ar: "ادفع عجلة الابتكار ونمو أعمالك من خلال البرمجيات المخصصة، ونظام إدارة الموارد البشرية (HRMS)، ونظام تخطيط موارد المؤسسات (ERP)، وأنظمة إدارة المهام المصممة لتلبية مواصفاتك الدقيقة.",
+  },
   // ==================== SERVICES ====================
   "services.label": { en: "What We Deliver", ar: "ما نقدمه" },
   "services.title1": { en: "Intelligent Solutions for", ar: "حلول ذكية" },
@@ -1175,37 +1184,45 @@ const translations: Translations = {
     ar: "المنازل والأعمال الحديثة",
   },
   "about.p1": {
-    en: "Trinai, a UAE-based technology leader, delivers AI CCTV surveillance & ELV solutions, home automation, and ICCC systems for governments, organizations, and enterprises.",
-    ar: "ترينآي، شركة تقنية رائدة مقرها الإمارات، تقدم حلول المراقبة بالذكاء الاصطناعي وأنظمة الجهد المنخفض وأتمتة المنزل ومراكز القيادة والتحكم.",
+    en: "Trinai, a UAE-based technology leader, delivers AI CCTV Surveillance, Software Development, Integrated Command & Control Center (ICCC) systems, Home Automation, ELV Solutions, and AI Smart Analytics for governments, organizations, and enterprises.",
+    ar: "ترينآي، شركة تقنية رائدة مقرها الإمارات، تقدم حلول المراقبة بالذكاء الاصطناعي، وتطوير البرمجيات، ومراكز القيادة والتحكم (ICCC)، وأتمتة المنزل، وأنظمة الجهد المنخفض (ELV)، والتحليلات الذكية بالذكاء الاصطناعي للحكومات والمؤسسات والشركات.",
   },
   "about.p2": {
     en: "We prioritize innovation, reliability, and real-time smart security with advanced perimeter protection and monitoring.",
     ar: "نولي الأولوية للابتكار والموثوقية والأمن الذكي في الوقت الفعلي مع حماية ومراقبة محيطية متقدمة.",
   },
   "about.flagTitle": {
-    en: "Proudly in UAE & India",
-    ar: "بفخر في الإمارات والهند",
+    en: "UAE and India",
+    ar: "الإمارات والهند",
   },
   "about.flagDesc": { en: "Trusted across borders", ar: "موثوقون عبر الحدود" },
-  "about.badgeTitle": { en: "UAE & India", ar: "الإمارات والهند" },
+  "about.badgeTitle": { en: "UAE and India", ar: "الإمارات والهند" },
   "about.badgeDesc": { en: "Global Operations", ar: "عمليات عالمية" },
 
   // ✅ ADDED: About Features List (for HomePage AboutSection)
   "about.features.1": {
-    en: "AI-Powered Surveillance",
-    ar: "مراقبة مدعومة بالذكاء الاصطناعي",
+    en: "AI CCTV Surveillance",
+    ar: "المراقبة بالذكاء الاصطناعي",
   },
   "about.features.2": {
+    en: "Software Development",
+    ar: "تطوير البرمجيات",
+  },
+  "about.features.3": {
+    en: "Integrated Command Centers (ICCC)",
+    ar: "مراكز القيادة والتحكم (ICCC)",
+  },
+  "about.features.4": {
     en: "Home & Building Automation",
     ar: "أتمتة المنازل والمباني",
   },
-  "about.features.3": {
-    en: "Integrated Command Centers",
-    ar: "مراكز قيادة متكاملة",
+  "about.features.5": {
+    en: "ELV Solutions",
+    ar: "أنظمة الجهد المنخفض (ELV)",
   },
-  "about.features.4": {
-    en: "24/7 Remote Monitoring",
-    ar: "مراقبة عن بعد على مدار الساعة",
+  "about.features.6": {
+    en: "AI Smart Analytics",
+    ar: "التحليلات الذكية بالذكاء الاصطناعي",
   },
 
   // About Page
@@ -2018,8 +2035,8 @@ const translations: Translations = {
   // ==================== HOME PAGE - WHAT IS TRINAI & CARDS ====================
   "home.whatIsTrinai.title": { en: "What is Trinai", ar: "ما هي تريناي" },
   "home.whatIsTrinai.desc": {
-    en: "Trinai, a UAE-based technology leader, delivers AI CCTV surveillance & ELV Solutions, home automation, and ICCC systems for governments, organizations, and enterprises.",
-    ar: "تريناي، شركة تقنية رائدة مقرها الإمارات، تقدم حلول المراقبة بالفيديو بالذكاء الاصطناعي، وأنظمة الجهد المنخفض (ELV)، وأتمتة المنازل، ومراكز القيادة والتحكم (ICCC) للحكومات، والمؤسسات، والشركات.",
+    en: "Trinai, a UAE-based technology leader, delivers AI CCTV Surveillance, Software Development, Integrated Command & Control Center (ICCC) systems, Home Automation, ELV Solutions, and AI Smart Analytics for governments, organizations, and enterprises.",
+    ar: "تريناي، شركة تقنية رائدة مقرها الإمارات، تقدم حلول المراقبة بالذكاء الاصطناعي، وتطوير البرمجيات، ومراكز القيادة والتحكم (ICCC)، وأتمتة المنازل، وأنظمة الجهد المنخفض (ELV)، والتحليلات الذكية بالذكاء الاصطناعي للحكومات والمؤسسات والشركات.",
   },
   "home.cards.1.title": {
     en: "Home & Building Automation",
@@ -2311,20 +2328,20 @@ const translations: Translations = {
     ar: "شركة خدمات البرمجيات في دبي",
   },
   "softwarePage.hero.subtitle1": {
-    en: "Drive innovation and accelerate business growth with secure, scalable, and future-ready digital solutions.",
-    ar: "ادفع عجلة الابتكار وسرّع نمو الأعمال بحلول رقمية آمنة وقابلة للتطوير وجاهزة للمستقبل.",
+    en: "Empowering Dubai & UAE enterprises to drive innovation and accelerate business growth with secure, scalable, and future-ready digital solutions.",
+    ar: "تمكين الشركات والمؤسسات في دبي ودولة الإمارات من دفع عجلة الابتكار وتسريع النمو بحلول رقمية آمنة وقابلة للتطوير ومستعدة للمستقبل.",
   },
   "softwarePage.hero.subtitle2": {
-    en: "Custom Software, HRMS, ERP, Task Management, and ANPR Solutions tailored for your business.",
-    ar: "البرمجيات المخصصة، ونظام إدارة الموارد البشرية (HRMS)، ونظام تخطيط موارد المؤسسات (ERP)، وإدارة المهام، وحلول ANPR المصممة خصيصاً لعملك.",
+    en: "Custom Software, HRMS, ERP, Task Management, and ANPR Solutions tailored for the UAE market.",
+    ar: "البرمجيات المخصصة، ونظام إدارة الموارد البشرية (HRMS)، ونظام تخطيط موارد المؤسسات (ERP)، وإدارة المهام، وحلول ANPR المصممة خصيصاً لبيئة الأعمال الإماراتية.",
   },
   "softwarePage.hero.simpleDesc": {
-    en: "Innovative, secure, and scalable custom software, HRMS, ERP, and ANPR solutions designed to empower your business.",
-    ar: "حلول برمجية مخصصة، وإدارة الموارد البشرية (HRMS)، وتخطيط موارد المؤسسات (ERP)، وأنظمة ANPR المبتكرة والآمنة والقابلة للتطوير والمصممة لتمكين عملك.",
+    en: "Innovative, secure, and scalable custom software, HRMS, ERP, and ANPR solutions tailored to UAE business standards and compliance.",
+    ar: "حلول برمجية مخصصة، وإدارة الموارد البشرية (HRMS)، وتخطيط موارد المؤسسات (ERP)، وأنظمة ANPR المبتكرة والآمنة والقابلة للتطوير والمصممة لتتوافق مع معايير الأعمال في دولة الإمارات.",
   },
   "softwarePage.intro.p1": {
-    en: "Drive innovation and accelerate business growth with an HRMS, ERP, and Task Management System that delivers secure, scalable, and future-ready digital solutions.",
-    ar: "ادفع عجلة الابتكار وسرّع نمو أعمالك من خلال نظام إدارة الموارد البشرية (HRMS) وتخطيط موارد المؤسسات (ERP) ونظام إدارة المهام الذي يوفر حلولاً رقمية آمنة وقابلة للتطوير وجاهزة للمستقبل.",
+    en: "Drive innovation and accelerate business growth in the UAE with our premium HRMS, ERP, and Task Management Systems built for local compliance, UAE labor laws, and enterprise regulations.",
+    ar: "ادفع عجلة الابتكار وسرّع نمو أعمالك في دولة الإمارات من خلال أنظمة الموارد البشرية (HRMS) وتخطيط موارد المؤسسات (ERP) وإدارة المهام المتوافقة مع قوانين العمل المحلية واللوائح التنظيمية للمؤسسات.",
   },
   "softwarePage.intro.p2": {
     en: "Whether you're a startup or an established enterprise, our experienced team designs software tailored to your business needs. As a leading App Development Company in Dubai, we build reliable applications that improve productivity, automate operations, and enhance customer experiences. From custom platforms to enterprise-grade solutions, our Web Development Services in Dubai focus on quality, performance, and long-term value. Partner with a Software Services Company in Dubai that transforms ideas into powerful digital solutions and helps your business stay ahead in today's competitive market.",
@@ -2373,6 +2390,531 @@ const translations: Translations = {
   "softwarePage.services.erp.desc": {
     en: "Streamline your business operations with a comprehensive Enterprise Resource Planning (ERP) system. Integrate finance, inventory, sales, procurement, HR, and reporting into one centralized platform for better decision-making.",
     ar: "بسّط عمليات عملك باستخدام نظام تخطيط موارد المؤسسات (ERP) الشامل. ادمج التمويل والمخزون والمبيعات والمشتريات والموارد البشرية والتقارير في منصة مركزية واحدة لاتخاذ قرارات أفضل.",
+  },
+
+  // ==================== HRMS PAGE ====================
+  "hrms.title": {
+    en: "Human Resource Management System (HRMS)",
+    ar: "نظام إدارة الموارد البشرية (HRMS)",
+  },
+  "hrms.subtitle": {
+    en: "A comprehensive Human Resource Management System (HRMS) fully compliant with UAE Labor Law, Wage Protection System (WPS), and local gratuity calculations, designed to automate the complete employee lifecycle for organizations in Dubai and across the UAE.",
+    ar: "نظام شامل لإدارة الموارد البشرية (HRMS) متوافق تماماً مع قانون العمل الإماراتي ونظام حماية الأجور (WPS) ولوائح نهاية الخدمة المحلية، ومصمم لأتمتة دورة حياة الموظف بالكامل للمؤسسات في دبي وجميع أنحاء الإمارات.",
+  },
+  "hrms.core.heading": {
+    en: "Core Infrastructure",
+    ar: "البنية التحتية الأساسية",
+  },
+  "hrms.features.1.title": {
+    en: "Centralized Employee Management",
+    ar: "الإدارة المركزية للموظفين",
+  },
+  "hrms.features.1.desc": {
+    en: "Maintain a single employee database with recruitment, onboarding, attendance, leave management, payroll, performance appraisals, employee documents, and self-service portal.",
+    ar: "الاحتفاظ بقاعدة بيانات موحدة للموظفين تشمل التوظيف، والتهيئة، والحضور، وإدارة الإجازات، والرواتب، وتقييمات الأداء، ومستندات الموظفين، وبوابة الخدمة الذاتية.",
+  },
+  "hrms.features.2.title": {
+    en: "Workflow & Approval Automation",
+    ar: "أتمتة سير العمل والاعتمادات",
+  },
+  "hrms.features.2.desc": {
+    en: "Automate HR workflows including attendance regularization, leave approvals, expense claims, document management, visitor management, and multi-level approval processes.",
+    ar: "أتمتة سير عمل الموارد البشرية بما في ذلك تسوية الحضور، واعتمادات الإجازات، ومطالبات المصاريف، وإدارة المستندات، وإدارة الزوار، وعمليات الموافقة متعددة المستويات.",
+  },
+  "hrms.features.3.title": {
+    en: "Integrated Enterprise Platform",
+    ar: "منصة المؤسسة المتكاملة",
+  },
+  "hrms.features.3.desc": {
+    en: "Role-Based Access Control (RBAC), biometric integration, WhatsApp & Email notifications, API integrations, real-time dashboards, audit trails, and enterprise-grade security.",
+    ar: "التحكم في الوصول القائم على الأدوار (RBAC)، والتكامل مع البصمة الحيوية، وإشعارات WhatsApp والبريد الإلكتروني، وتكامل واجهات البرمجة (APIs)، ولوحات المعلومات في الوقت الفعلي، ومسارات التدقيق، والأمن على مستوى المؤسسات.",
+  },
+  "hrms.workflows.heading": {
+    en: "Key Automated Workflows",
+    ar: "سير العمل المؤتمت الرئيسي",
+  },
+  "hrms.workflows.1.name": {
+    en: "Attendance Management",
+    ar: "إدارة الحضور",
+  },
+  "hrms.workflows.1.steps": {
+    en: "Employee Punch → Attendance Capture → Regularization Request → Manager Approval",
+    ar: "بصمة الموظف ← تسجيل الحضور ← طلب تسوية الحضور ← موافقة المدير",
+  },
+  "hrms.workflows.2.name": {
+    en: "Leave Management",
+    ar: "إدارة الإجازات",
+  },
+  "hrms.workflows.2.steps": {
+    en: "Leave Application → Manager Review → Approval → Leave Balance Update",
+    ar: "طلب إجازة ← مراجعة المدير ← الموافقة ← تحديث رصيد الإجازات",
+  },
+  "hrms.workflows.3.name": {
+    en: "Biometric Device Integration",
+    ar: "التكامل مع أجهزة البصمة الحيوية",
+  },
+  "hrms.workflows.3.steps": {
+    en: "Biometric Punch → Real-Time Attendance Sync → Attendance Verification → HRMS Update",
+    ar: "البصمة الحيوية ← مزامنة الحضور بالوقت الفعلي ← التحقق من الحضور ← تحديث نظام HRMS",
+  },
+  "hrms.workflows.4.name": {
+    en: "Payroll Processing",
+    ar: "معالجة الرواتب",
+  },
+  "hrms.workflows.4.steps": {
+    en: "Attendance Verification → Payroll Calculation → Payslip Generation → Salary Processing",
+    ar: "التحقق من الحضور ← حساب الرواتب ← إصدار قسائم الراتب ← صرف الرواتب",
+  },
+  "hrms.why.title": {
+    en: "Why Choose Our HRMS?",
+    ar: "لماذا تختار نظام إدارة الموارد البشرية لدينا؟",
+  },
+  "hrms.why.item1": {
+    en: "UAE Labor Law Compliant",
+    ar: "متوافق مع قانون العمل الإماراتي",
+  },
+  "hrms.why.item2": {
+    en: "Secure Local UAE Cloud Hosting & Backups",
+    ar: "استضافة سحابية محلية آمنة ونسخ احتياطي داخل دولة الإمارات",
+  },
+  "hrms.why.item3": {
+    en: "Seamless Biometric Device Integration",
+    ar: "تكامل سلس مع أجهزة البصمة الحيوية",
+  },
+  "hrms.why.item4": {
+    en: "24/7 Priority Technical Support",
+    ar: "دعم فني ذو أولوية على مدار الساعة",
+  },
+  "hrms.cta.title": {
+    en: "Ready to Transform Your HR Operations?",
+    ar: "هل أنت مستعد لتحويل عمليات الموارد البشرية لديك؟",
+  },
+  "hrms.cta.desc": {
+    en: "Book a personalized demo and see how our HRMS can increase productivity and save costs.",
+    ar: "احجز عرضًا تجريبيًا مخصصًا وشاهد كيف يمكن لنظامنا زيادة الإنتاجية وتقليل التكاليف.",
+  },
+
+  // ==================== ERP PAGE ====================
+  "erp.title": {
+    en: "Enterprise Resource Planning (ERP)",
+    ar: "نظام تخطيط موارد المؤسسات (ERP)",
+  },
+  "erp.subtitle": {
+    en: "Enterprise Resource Planning (ERP) platform that integrates Finance, Procurement, Inventory, Sales, CRM, Projects, and Business Operations. Fully compliant with UAE Federal Tax Authority (FTA) VAT guidelines and local e-invoicing standards, it enables UAE organizations to automate workflows and drive efficiency.",
+    ar: "منصة تخطيط موارد المؤسسات (ERP) متكاملة تدمج العمليات المالية والمبيعات والمخزون مع التوافق التام مع متطلبات الهيئة الاتحادية للضرائب (FTA) لضريبة القيمة المضافة ولوائح الفوترة الإلكترونية في دولة الإمارات.",
+  },
+  "erp.core.heading": {
+    en: "Core Infrastructure",
+    ar: "البنية التحتية الأساسية",
+  },
+  "erp.features.1.title": {
+    en: "Integrated Enterprise ERP",
+    ar: "نظام ERP متكامل للمؤسسات",
+  },
+  "erp.features.1.desc": {
+    en: "Manage Finance, Procurement, Sales, Inventory, Manufacturing, HRMS, CRM, Projects, Payroll, and Asset Management through a single centralized platform.",
+    ar: "إدارة المالية والمشتريات والمبيعات والمخزون والتصنيع ونظام الموارد البشرية وإدارة علاقات العملاء والمشاريع والرواتب وإدارة الأصول من خلال منصة مركزية واحدة.",
+  },
+  "erp.features.2.title": {
+    en: "Workflow & Business Automation",
+    ar: "أتمتة سير العمل والعمليات",
+  },
+  "erp.features.2.desc": {
+    en: "Automate approvals, business workflows, document processing, notifications, digital signatures, and enterprise operations using configurable workflow engines.",
+    ar: "أتمتة الموافقات وسير العمل ومعالجة المستندات والإشعارات والتوقيعات الرقمية وعمليات المؤسسة باستخدام محركات سير العمل القابلة للتهيئة.",
+  },
+  "erp.features.3.title": {
+    en: "AI & Enterprise Integration",
+    ar: "الذكاء الاصطناعي وتكامل المؤسسة",
+  },
+  "erp.features.3.desc": {
+    en: "AI-powered business assistant with REST APIs, third-party integrations, mobile access, cloud/on-premise deployment, exclusive dashboards, and real-time analytics.",
+    ar: "مساعد أعمال مدعوم بالذكاء الاصطناعي مع واجهات برمجية REST APIs، وتكامل مع جهات خارجية، والوصول عبر الهاتف المحمول، والنشر السحابي أو المحلي، ولوحات معلومات حصرية، وتحليلات في الوقت الفعلي.",
+  },
+  "erp.workflows.heading": {
+    en: "Key Automated Workflows",
+    ar: "سير العمل المؤتمت الرئيسي",
+  },
+  "erp.workflows.1.name": {
+    en: "Procure-to-Pay",
+    ar: "من الشراء إلى الدفع",
+  },
+  "erp.workflows.1.steps": {
+    en: "Material Request → RFQ → Supplier Quotation → Purchase Order → Goods Receipt → Vendor Payment",
+    ar: "طلب المواد ← طلب تسعير ← عرض سعر المورد ← أمر الشراء ← إيصال استلام البضائع ← دفع مستحقات المورد",
+  },
+  "erp.workflows.2.name": {
+    en: "Order-to-Cash",
+    ar: "من الطلب إلى النقد",
+  },
+  "erp.workflows.2.steps": {
+    en: "Lead → Opportunity → Quotation → Sales Order → Delivery → Invoice → Payment Collection",
+    ar: "العميل المحتمل ← الفرصة البيعية ← عرض السعر ← أمر البيع ← التسليم ← الفاتورة ← تحصيل الدفعة",
+  },
+  "erp.workflows.3.name": {
+    en: "Employee Lifecycle",
+    ar: "دورة حياة الموظف",
+  },
+  "erp.workflows.3.steps": {
+    en: "Recruitment → Employee Onboarding → Attendance & Leave → Payroll → Performance Appraisal",
+    ar: "التوظيف ← تهيئة الموظف ← الحضور والإجازات ← الرواتب ← تقييم الأداء",
+  },
+  "erp.workflows.4.name": {
+    en: "Project Execution",
+    ar: "تنفيذ المشاريع",
+  },
+  "erp.workflows.4.steps": {
+    en: "Project Planning → Task Assignment → Resource Allocation → Progress Tracking → Project Completion",
+    ar: "تخطيط المشروع ← تعيين المهام ← تخصيص الموارد ← تتبع التقدم ← إنجاز المشروع",
+  },
+  "erp.why.title": {
+    en: "Why Choose Our ERP Solution?",
+    ar: "لماذا تختار نظام ERP لدينا؟",
+  },
+  "erp.why.item1": {
+    en: "Unified Single Source of Truth",
+    ar: "مصدر موحد للمعلومات والبيانات",
+  },
+  "erp.why.item2": {
+    en: "Real-time Operations Control",
+    ar: "تحكم كامل بالعمليات في الوقت الفعلي",
+  },
+  "erp.why.item3": {
+    en: "Highly Scalable & Secure Architecture",
+    ar: "بنية برمجية آمنة للغاية وقابلة للتطوير",
+  },
+  "erp.why.item4": {
+    en: "FTA VAT Compliant & Tailored for UAE Business",
+    ar: "متوافق مع ضريبة القيمة المضافة لـ FTA ومصمم لبيئة الأعمال الإماراتية",
+  },
+  "erp.cta.title": {
+    en: "Empower Your Enterprise Operations Today",
+    ar: "قم بتمكين عمليات مؤسستك اليوم",
+  },
+  "erp.cta.desc": {
+    en: "Connect your business processes and unlock maximum efficiency with our customized ERP.",
+    ar: "اربط عمليات عملك وافتح أقصى درجات الكفاءة مع نظام ERP المخصص لدينا.",
+  },
+
+  // ==================== CUSTOM SOFTWARE ====================
+  "custom.title": {
+    en: "Custom Software Development",
+    ar: "تطوير البرمجيات المخصصة",
+  },
+  "custom.subtitle": {
+    en: "Tailored digital solutions built specifically for UAE businesses, from custom web and mobile apps to local API integrations and secure cloud hosting.",
+    ar: "حلول رقمية مخصصة ومبنية خصيصاً للشركات في دولة الإمارات، بدءاً من التطبيقات وحتى ربط الأنظمة المحلية والحلول السحابية الآمنة.",
+  },
+  "custom.features.1.title": {
+    en: "Web Apps",
+    ar: "تطبيقات الويب",
+  },
+  "custom.features.1.desc": {
+    en: "Scalable React/Node.js applications.",
+    ar: "تطبيقات ويب قابلة للتطوير باستخدام React/Node.js.",
+  },
+  "custom.features.2.title": {
+    en: "Mobile Apps",
+    ar: "تطبيقات الهاتف",
+  },
+  "custom.features.2.desc": {
+    en: "iOS and Android development.",
+    ar: "تطوير تطبيقات هواتف لنظامي iOS و Android.",
+  },
+  "custom.features.3.title": {
+    en: "API Integration",
+    ar: "تكامل واجهة البرمجة (API)",
+  },
+  "custom.features.3.desc": {
+    en: "Connecting disparate systems.",
+    ar: "ربط الأنظمة المتباينة بسلاسة.",
+  },
+  "custom.features.4.title": {
+    en: "Cloud Solutions",
+    ar: "الحلول السحابية",
+  },
+  "custom.features.4.desc": {
+    en: "AWS/Azure deployment and management.",
+    ar: "نشر وإدارة الخدمات السحابية على AWS/Azure.",
+  },
+  "custom.features.5.title": {
+    en: "UI/UX Design",
+    ar: "تصميم واجهة وتجربة المستخدم",
+  },
+  "custom.features.5.desc": {
+    en: "User-centric interface design.",
+    ar: "تصميم واجهات وتجارب تركز على المستخدم.",
+  },
+  "custom.features.6.title": {
+    en: "Maintenance",
+    ar: "الصيانة والدعم",
+  },
+  "custom.features.6.desc": {
+    en: "Ongoing support and updates.",
+    ar: "تقديم الدعم المستمر والتحديثات الدورية.",
+  },
+  "custom.why.title": {
+    en: "Why Choose Custom Development?",
+    ar: "لماذا تختار التطوير المخصص؟",
+  },
+  "custom.why.item1": {
+    en: "Perfect Fit for Your Business Processes",
+    ar: "ملاءمة مثالية ومخصصة لمتطلبات عملك",
+  },
+  "custom.why.item2": {
+    en: "No Licensing Fee Traps",
+    ar: "لا توجد رسوم ترخيص خفية أو شهرية",
+  },
+  "custom.why.item3": {
+    en: "Full IP and Code Ownership",
+    ar: "ملكية فكرية كاملة للكود البرمجي",
+  },
+  "custom.why.item4": {
+    en: "24/7 Local UAE Support & Agile Delivery",
+    ar: "دعم محلي على مدار الساعة في الإمارات وتسليم مرن وسريع",
+  },
+  "custom.cta.title": {
+    en: "Have a Unique Product Idea?",
+    ar: "هل لديك فكرة منتج فريد؟",
+  },
+  "custom.cta.desc": {
+    en: "Let's turn your vision into a production-ready software solution engineered for performance.",
+    ar: "دعنا نحول رؤيتك إلى حل برمجيات جاهز للإنتاج ومصمم للأداء العالي.",
+  },
+
+  // ==================== TMS PAGE ====================
+  "tms.title": {
+    en: "Enterprise Task & Project Management Platform (TMS) | TRINAI",
+    ar: "منصة إدارة المشاريع والمهام (TMS) | TRINAI",
+  },
+  "tms.metaDesc": {
+    en: "TMS is a comprehensive enterprise task and project management platform that replaces disconnected tools with an integrated workspace.",
+    ar: "منصة TMS هي نظام شامل لإدارة المشاريع والمهام في المؤسسات، يستبدل الأدوات المشتتة ببيئة عمل موحدة.",
+  },
+  "tms.hero.badge": {
+    en: "TMS Platform",
+    ar: "منصة إدارة المهام والمشاريع",
+  },
+  "tms.hero.title": {
+    en: "Enterprise Task & Project Management Platform",
+    ar: "منصة إدارة المهام والمشاريع للمؤسسات",
+  },
+  "tms.hero.desc": {
+    en: "TMS is a comprehensive enterprise task and project management platform tailored for UAE businesses and government entities. Designed to manage projects, teams, workflows, and governance from a single centralized workspace, it supports full English/Arabic localization and enterprise-grade local security compliance.",
+    ar: "منصة TMS هي نظام شامل لإدارة المشاريع والمهام في المؤسسات، مصمم خصيصاً للشركات والهيئات الحكومية في دولة الإمارات. يتيح تنظيم المشاريع وفرق العمل والتدفقات مع دعم كامل للغتين العربية والإنجليزية وأعلى معايير الأمان المحلية.",
+  },
+  "tms.hero.cta": {
+    en: "Book a Demo",
+    ar: "احجز عرضًا تجريبيًا",
+  },
+  "tms.mockup.inProgress": {
+    en: "In Progress",
+    ar: "قيد العمل",
+  },
+  "tms.mockup.completed": {
+    en: "Completed",
+    ar: "مكتمل",
+  },
+  "tms.about.title": {
+    en: "What is TMS?",
+    ar: "ما هي بيئة إدارة المهام والمشاريع؟",
+  },
+  "tms.about.desc": {
+    en: "TMS is a next-generation project architecture that redefines how cross-functional teams coordinate work by replacing flat task lists and cluttered Kanban boards with dynamic, goal-oriented execution streams. Instead of forcing departments to operate in separate, disconnected tools or navigate a single chaotic board, TMS allows groups like Design, Development, QA, and Marketing to run parallel execution tracks under one unified project umbrella.",
+    ar: "تعد منصة TMS بنية برمجية وإدارية من الجيل القادم، تعيد تعريف كيفية تنسيق العمل للفرق متعددة الوظائف من خلال استبدال قوائم المهام البسيطة ولوحات كانبان المشتتة بمسارات تنفيذ ديناميكية موجهة نحو الأهداف. وبدلاً من إجبار الأقسام على العمل في أدوات منفصلة ومتباعدة أو تصفح لوحة عمل واحدة فوضوية، يتيح نظام TMS لمجموعات العمل مثل التصميم، التطوير، ضمان الجودة، والتسويق تشغيل مسارات تنفيذية متوازية تحت مظلة مشروع واحد موحد.",
+  },
+  "tms.capabilities.heading": {
+    en: "Core Capabilities",
+    ar: "القدرات والخصائص الأساسية",
+  },
+  "tms.differentiators.heading": {
+    en: "Unique Differentiators",
+    ar: "أهم مميزاتنا الفريدة",
+  },
+  "tms.idealFor.heading": {
+    en: "Ideal For",
+    ar: "المنصات والفرق المستهدفة",
+  },
+  "tms.idealFor.desc": {
+    en: "TMS is engineered to optimize workflows across a wide array of specialized industries.",
+    ar: "تم تصميم نظام إدارة المهام (TMS) لتحسين وتسهيل سير العمل لمجموعة واسعة من القطاعات المتخصصة.",
+  },
+  "tms.cta.title": {
+    en: "Transform Your Project Governance",
+    ar: "أحدث ثورة في حوكمة مشاريعك",
+  },
+  "tms.cta.desc": {
+    en: "Connect parallel workflows, orchestrate goals, and consolidate enterprise tasks in a single interface.",
+    ar: "اربط مسارات العمل المتوازية، ونظم الأهداف، ووحد المهام المؤسسية في واجهة واحدة.",
+  },
+  "tms.cta.btn": {
+    en: "Talk to our Expert",
+    ar: "تواصل مع خبيرنا",
+  },
+
+  // Capabilities
+  "tms.capabilities.1.title": {
+    en: "Project Management",
+    ar: "إدارة المشاريع",
+  },
+  "tms.capabilities.1.desc": {
+    en: "Organise projects into structured workspaces, manage multiple projects simultaneously, track progress in real time, and collaborate across departments.",
+    ar: "تنظيم المشاريع في بيئات عمل هيكلية، وإدارة مشاريع متعددة في نفس الوقت، وتتبع التقدم في الوقت الفعلي، والتعاون عبر الأقسام المختلفة.",
+  },
+  "tms.capabilities.1.point1": {
+    en: "Structured workspaces & execution streams",
+    ar: "بيئات عمل هيكلية ومسارات تنفيذ",
+  },
+  "tms.capabilities.1.point2": {
+    en: "Real-time tracking & dashboard visibility",
+    ar: "تتبع في الوقت الفعلي ورؤية لوحة التحكم",
+  },
+  "tms.capabilities.1.point3": {
+    en: "Cross-department collaboration",
+    ar: "التعاون بين الأقسام المختلفة",
+  },
+  "tms.capabilities.1.point4": {
+    en: "Dynamic Gantt & Kanban views",
+    ar: "مخططات غانت ولوحات كانبان الديناميكية",
+  },
+
+  "tms.capabilities.2.title": {
+    en: "Team Collaboration",
+    ar: "تعاون فريق العمل",
+  },
+  "tms.capabilities.2.desc": {
+    en: "Built-in chat, centralised document sharing, company announcements, and instant notifications.",
+    ar: "محادثات مدمجة، ومشاركة مستندات مركزية، وإعلانات عامة للشركة، وتنبيهات فورية ومباشرة.",
+  },
+  "tms.capabilities.2.point1": {
+    en: "Contextual comment threads & chat",
+    ar: "سلاسل تعليقات سياقية ومحادثات",
+  },
+  "tms.capabilities.2.point2": {
+    en: "Centralised document hub & versioning",
+    ar: "مركز مستندات موحد وإدارة الإصدارات",
+  },
+  "tms.capabilities.2.point3": {
+    en: "System-wide company announcements",
+    ar: "إعلانات عامة على مستوى الشركة",
+  },
+  "tms.capabilities.2.point4": {
+    en: "Instant push notifications & alerts",
+    ar: "إشعارات دفع وتنبيهات فورية",
+  },
+
+  "tms.capabilities.3.title": {
+    en: "Enterprise Governance",
+    ar: "الحوكمة المؤسسية",
+  },
+  "tms.capabilities.3.desc": {
+    en: "Role-based access control, department-level isolation, multi-organisation support, and secure permission management.",
+    ar: "تحكم بالوصول على أساس الأدوار، وعزل البيانات على مستوى القسم، ودعم الهياكل متعددة المؤسسات، وإدارة تصاريح آمنة.",
+  },
+  "tms.capabilities.3.point1": {
+    en: "Granular role-based access control (RBAC)",
+    ar: "تحكم دقيق بالوصول على أساس الدور (RBAC)",
+  },
+  "tms.capabilities.3.point2": {
+    en: "Strict department-level data isolation",
+    ar: "عزل صارم للبيانات على مستوى الأقسام",
+  },
+  "tms.capabilities.3.point3": {
+    en: "Multi-organisation structure mapping",
+    ar: "تخطيط هيكلي لعدة مؤسسات وشركات",
+  },
+  "tms.capabilities.3.point4": {
+    en: "Detailed audit logs & activity tracking",
+    ar: "سجلات تدقيق مفصلة وتتبع الأنشطة",
+  },
+
+  "tms.capabilities.4.title": {
+    en: "Intelligent Workflow",
+    ar: "تدفق العمل الذكي",
+  },
+  "tms.capabilities.4.desc": {
+    en: "AI-assisted recommendations, structured request management, automated workflows, and performance analytics.",
+    ar: "توصيات مدعومة بالذكاء الاصطناعي، وإدارة طلبات هيكلية، وأتمتة المهام، وتحليلات الأداء المتقدمة.",
+  },
+  "tms.capabilities.4.point1": {
+    en: "AI-assisted priority recommendations",
+    ar: "توصيات ذكية للأولويات بالذكاء الاصطناعي",
+  },
+  "tms.capabilities.4.point2": {
+    en: "Structured intake request & approval forms",
+    ar: "طلبات استلام ونماذج موافقات منظمة",
+  },
+  "tms.capabilities.4.point3": {
+    en: "Custom rule-based workflow automation",
+    ar: "أتمتة تدفقات العمل بناءً على القواعد",
+  },
+  "tms.capabilities.4.point4": {
+    en: "Deep performance analytics & SLA reports",
+    ar: "تحليلات أداء عميقة وتقارير SLA",
+  },
+
+  // Differentiators
+  "tms.differentiators.1.title": {
+    en: "Project Streams",
+    ar: "مسارات المشاريع",
+  },
+  "tms.differentiators.1.desc": {
+    en: "Organise complex projects into focused execution streams so multiple teams work independently while remaining aligned to a common objective.",
+    ar: "تنظيم المشاريع المعقدة في مسارات تنفيذية مركزة لتعمل الفرق بشكل مستقل مع الحفاظ على التوافق مع الهدف العام المشترك.",
+  },
+  "tms.differentiators.2.title": {
+    en: "AI with Human Approval",
+    ar: "الذكاء الاصطناعي مع الموافقة البشرية",
+  },
+  "tms.differentiators.2.desc": {
+    en: "AI generates recommendations, insights, and quality suggestions while keeping final decisions under human approval.",
+    ar: "يقوم الذكاء الاصطناعي بتوليد التوصيات والرؤى واقتراحات الجودة مع الحفاظ على بقاء القرار النهائي تحت إشراف واعتماد بشري.",
+  },
+  "tms.differentiators.3.title": {
+    en: "Structured Intake Requests",
+    ar: "طلبات الاستلام المنظمة",
+  },
+  "tms.differentiators.3.desc": {
+    en: "Capture business, support, or client requests through a structured approval workflow instead of scattered emails or messages.",
+    ar: "استقبل طلبات العمل أو الدعم أو العملاء من خلال دورة موافقات منظمة بدلاً من رسائل البريد الإلكتروني والدردشة المشتتة.",
+  },
+
+  // Ideal For
+  "tms.idealFor.1": {
+    en: "Software Development",
+    ar: "تطوير البرمجيات",
+  },
+  "tms.idealFor.2": {
+    en: "Product Management",
+    ar: "إدارة المنتجات",
+  },
+  "tms.idealFor.3": {
+    en: "IT Operations",
+    ar: "عمليات تكنولوجيا المعلومات",
+  },
+  "tms.idealFor.4": {
+    en: "Engineering Organizations",
+    ar: "المؤسسات الهندسية",
+  },
+  "tms.idealFor.5": {
+    en: "Marketing",
+    ar: "التسويق والإعلام",
+  },
+  "tms.idealFor.6": {
+    en: "Human Resources",
+    ar: "الموارد البشرية",
+  },
+  "tms.idealFor.7": {
+    en: "Enterprise PMOs",
+    ar: "مكاتب إدارة المشاريع (PMO)",
+  },
+  "tms.idealFor.8": {
+    en: "Consulting Organizations",
+    ar: "الشركات الاستشارية",
+  },
+  "tms.idealFor.9": {
+    en: "Cross-functional Business Teams",
+    ar: "الفرق متعددة الوظائف",
   },
 };
 

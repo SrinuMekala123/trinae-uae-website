@@ -228,12 +228,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 // Import images from assets
-import anprImage from "@/assets/ANPR.png";
-import faceRecImage from "@/assets/Face-Recognitation.png";
-import peopleCountImage from "@/assets/People-counting.png";
-import borderImage from "@/assets/boader-cross.png";
-import behaviorImage from "@/assets/Behaviour.png";
-import alertsImage from "@/assets/alets.png";
+import anprImage from "@/assets/anprimage.png";
+import faceRecImage from "@/assets/Face_Recognition.jpeg";
+import peopleCountImage from "@/assets/people_counting.png";
+import borderImage from "@/assets/Intrusion_Detection.png";
+import behaviorImage from "@/assets/Behavior_ Analysis.png";
+import alertsImage from "@/assets/Smart_Alerts _Notifications.png";
 
 // ✅ Import local video from src/assets/
 import aiAnalyticsVideo from "../assets/ai-analytics.webm";
@@ -356,7 +356,7 @@ const AiSmartAnalyticsPage = () => {
 
       {/* Features Grid - Reduced top padding */}
       <section className="py-12 bg-gradient-to-b from-muted/30 to-background">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-6xl">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -366,29 +366,29 @@ const AiSmartAnalyticsPage = () => {
             {t("aiAnalyticsPage.features.title")}
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {features.map((f, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                // ✅ UPDATED: Even larger card height for bigger images
-                className="glass rounded-2xl hover:shadow-xl transition-shadow flex flex-col min-h-[500px]"
+                initial={{ opacity: 0, x: i % 2 === 0 ? -60 : 60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false, amount: 0.15 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="glass rounded-2xl hover:shadow-xl transition-shadow flex flex-col min-h-[500px] overflow-hidden group"
               >
-                {/* Image - Significantly increased height for prominent display */}
-                <div className="relative w-full h-64 md:h-72">
+                {/* Card Image */}
+                <div className="relative w-full h-64 md:h-72 bg-muted/30 overflow-hidden shrink-0">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-10 blur-lg transition-opacity duration-300" />
                   <img
                     src={f.image}
                     alt={f.title}
-                    className="absolute inset-0 w-full h-full object-cover rounded-t-2xl"
+                    className="absolute inset-0 w-full h-full object-contain p-4 rounded-t-2xl group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
 
                 {/* Content - Below image */}
-                <div className="pt-4 pb-6 px-6 flex flex-col justify-center flex-1 min-w-0">
-                  <h3 className="text-xl font-bold font-heading text-foreground mb-2">
+                <div className="pt-4 pb-6 px-6 flex flex-col justify-center flex-1 min-w-0 space-y-4">
+                  <h3 className="text-xl font-bold font-heading text-foreground group-hover:text-primary transition-colors">
                     {f.title}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed break-words">
